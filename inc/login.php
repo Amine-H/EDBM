@@ -1,3 +1,6 @@
+<?php
+if(!isset($isIndex))die('');
+if(User::isConnected())header('Location: /');?>
 <div class="container">
       <form class="form-signin" role="form" action="_login" method="POST">
         <h2 class="form-signin-heading">Login</h2>

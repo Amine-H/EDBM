@@ -1,4 +1,5 @@
-<?php
+<?php if(!isset($isIndex))die('');
+if(User::isConnected())header('Location: /');
 //we'lll retreive the POST vars and try to connect..
 $user = $_POST['user'];//need to clean this data, for security reasons
 $password = $_POST['password'];
@@ -14,7 +15,7 @@ else
 {
 	echo EDBM_SERVER." ".$user." ".$password;
 	echo "error occured while trying to connect!";
-	//timedRedirect('/login');
+	timedRedirect('/login');
 }
 
 ?>
