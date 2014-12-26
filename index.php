@@ -1,7 +1,6 @@
-<!DOCTYPE html>
 <?php
-	$isIndex=true;
 	session_start();
+	$isIndex=true;
 	require_once('inc/functions.php');
 	require_once('inc/config.php');
 	require_once('inc/user.php');
