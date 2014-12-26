@@ -5,7 +5,7 @@
 */
 class Table{
 	public static function Create($db) //Create the table for $db database 
-	{//to check if a user is connected or not
+	{
 		$query  ="CREATE TABLE ";
 		$query .=$_POST["Tname"];
 		$query .=" ("
@@ -28,10 +28,41 @@ class Table{
 		$result = mysqli_query($db,$query);
 		return $result;
 	}
+//***********************************************************************
 	public static function Update($db) //Update the table for $db database 
-	{//to check if a user is connected or not
+	{
 		$query  ="UPDATE "._POST["Tname"]." ";
 		$query .="SET "//not finish yet i need to think deeply fot this one 
+		$query .=" ;"
+		$result = mysql_real_escape_string($query);
+		$result = mysqli_query($db,$query);
+		return $result;
+	}
+//***********************************************************************
+	public static function INSERT($db) //INSERT INTO the table for $db database 
+	{
+		$query  ="INSERT INTO "._POST["Tname"]." ";
+		$queryA="";
+		$queryB=""
+		//parameter 
+		for($i=0;$i < sizeof($_POST["TIname"]);$i++){
+			if(isset($_POST["TIname".$i])){
+				$queryA .=$_POST["TIname".$i]." ";
+				$queryB .=$_POST["TIcontent".$i]." ";
+			}else{
+				$queryA .=$_POST["TIname".$i]." ";
+				$queryB .="NULL ";
+			}
+			$queryA .=" , ";
+			$queryB .=" , ";
+		}
+		$query .="( "
+		$query .=$queryA." ";
+		$query .=") "
+		$query .="VALUES "
+		$query .="( "
+		$query .=$queryB." ";
+		$query .=") "
 		$query .=" ;"
 		$result = mysql_real_escape_string($query);
 		$result = mysqli_query($db,$query);
