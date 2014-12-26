@@ -4,7 +4,7 @@
 * this is a class to edit and creat table for database for all user connected.
 */
 class Table{
-	public static function Create($db) //we give database to secure the query
+	public static function Create($db) //Create the table for $db database 
 	{//to check if a user is connected or not
 		$query  ="CREATE TABLE ";
 		$query .=$_POST["Tname"];
@@ -28,5 +28,13 @@ class Table{
 		$result = mysqli_query($db,$query);
 		return $result;
 	}
-
+	public static function Update($db) //Update the table for $db database 
+	{//to check if a user is connected or not
+		$query  ="UPDATE "._POST["Tname"]." ";
+		$query .="SET "//not finish yet i need to think deeply fot this one 
+		$query .=" ;"
+		$result = mysql_real_escape_string($query);
+		$result = mysqli_query($db,$query);
+		return $result;
+	}
 ?>
