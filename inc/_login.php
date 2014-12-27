@@ -4,16 +4,16 @@ if(User::isConnected())header('Location: /');
 $user = $_POST['user'];//need to clean this data, for security reasons
 $password = $_POST['password'];
 
-if(@mysql_connect(EDBM_SERVER,$user,$pass))
+$link = @mysql_connect(EDBM_SERVER,$user,$password);
+
+if($link !== false)
 {
-	echo "connection successfull!";
-	@mysql_set_charset("utf8");
+	echo "connection successfull!".$password;
 	User::login(array('user'=>$user,'password'=>$password));
 	timedRedirect('/home');
 }
 else
 {
-	echo EDBM_SERVER." ".$user." ".$password;
 	echo "error occured while trying to connect!";
 	timedRedirect('/login');
 }

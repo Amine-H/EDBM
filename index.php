@@ -4,6 +4,7 @@
 	require_once('inc/functions.php');
 	require_once('inc/config.php');
 	require_once('inc/user.php');
+	require_once('inc/DB.php');
 	$routes = array('home',
 					'login',
 					'_login',
@@ -55,9 +56,11 @@
 			}
 			else
 			{
+				DB::start();
 				require_once("/inc/theme_header.php");
 				require_once("/inc/".$action.".php");
 				require_once("/inc/theme_footer.php");
+				DB::end();
 			}
 		}
 		else
