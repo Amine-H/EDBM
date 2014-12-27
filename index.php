@@ -56,11 +56,11 @@
 			}
 			else
 			{
-				DB::start();
+				$link=DB::start();
 				require_once("/inc/theme_header.php");
 				require_once("/inc/".$action.".php");
 				require_once("/inc/theme_footer.php");
-				DB::end();
+				DB::end($link);
 			}
 		}
 		else
