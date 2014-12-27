@@ -3,11 +3,11 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="/">
-                        Easy Database Manager
+                        <h3>Easy Database Manager</h3>
                     </a>
                 </li>
                 <li>
-                    <a href="#">Dashboard</a>
+                    <a href="#">DAtabase</a>
                 </li>
                 <li>
                     <a href="#">Shortcuts</a>

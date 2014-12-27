@@ -1,10 +1,10 @@
 <?php
 
 /**
-* this is a class to edit and creat table for database for all user connected.
+* this is a class to edit and create table for database for all user connected.
 */
 class Table{
-	public static function Create($db) //Create the table for $db database 
+	public static function Create($db,$_POST) //Create the table for $db database 
 	{
 		$query  ="CREATE TABLE ";
 		$query .=$_POST["Tname"];
@@ -29,17 +29,17 @@ class Table{
 		return $result;
 	}
 //***********************************************************************
-	public static function Update($db) //Update the table for $db database 
+	public static function Update($db,$_POST) //Update the table for $db database 
 	{
 		$query  ="UPDATE "._POST["Tname"]." ";
-		$query .="SET "//not finish yet i need to think deeply fot this one 
+		$query .="SET "//not finish yet i need to think deeply for this one 
 		$query .=" ;"
 		$result = mysql_real_escape_string($query);
 		$result = mysqli_query($db,$query);
 		return $result;
 	}
 //***********************************************************************
-	public static function INSERT($db) //INSERT INTO the table for $db database 
+	public static function INSERT($db,$_POST) //INSERT INTO the table for $db database 
 	{
 		$query  ="INSERT INTO "._POST["Tname"]." ";
 		$queryA="";
