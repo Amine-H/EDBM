@@ -3,11 +3,18 @@
 	$isIndex=true;
 	require_once('inc/functions.php');
 	require_once('inc/config.php');
-	require_once('inc/user.php');
-	require_once('inc/DB.php');
+	require_once('inc/user.class.php');
+	require_once('inc/DB.class.php');
 	$routes = array('home',
 					'login',
 					'_login',
+					'table',
+					'_table',
+					'fonction',
+					'_fonction',
+					'procedure',
+					'_procedure',
+					'database',
 					'logout');
 	$requestURI = explode('/',$_SERVER['REQUEST_URI']);
 	$scriptName = explode('/',$_SERVER['SCRIPT_NAME']);
@@ -32,6 +39,8 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 		<title>Easy Database Manager</title>
+		<script type="text/javascript" src="/js/jquery.min.js"></script>
+		<script type="text/javascript" src="/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 		<?php 
 		if(!User::isConnected())
@@ -39,8 +48,6 @@
 		<link rel="stylesheet" type="text/css" href="/css/signin.css">
 		<?php }?>
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
-		<script type="text/javascript" src="/js/jquery.min.js"></script>
-		<script type="text/javascript" src="/js/bootstrap.min.js"></script>
 </head>
 <body>
 		<?php
@@ -57,6 +64,8 @@
 			else
 			{
 				$link=DB::start();
+				if($db=DB::getSelectedDB())
+					mysql_query("USE $db",$link);
 				require_once("/inc/theme_header.php");
 				require_once("/inc/".$action.".php");
 				require_once("/inc/theme_footer.php");

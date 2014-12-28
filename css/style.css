@@ -1,7 +1,7 @@
 #wrapper
 {
-	width:980px;
-	margin:0 auto;
+    width:980px;
+    margin:0 auto;
 }
 
 /*!
@@ -126,4 +126,18 @@
         position: relative;
         margin-right: 0;
     }
+}
+
+.table tr td,.table tr th
+{
+    width:100px;
+}
+
+.selected{
+    background-color: grey;
+    color: white !important;
+}
+
+.table-nonfluid {
+   width: auto;
 }

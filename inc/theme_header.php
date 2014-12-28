@@ -7,27 +7,15 @@
                         <h3>Easy Database Manager</h3>
                     </a>
                 </li>
+                <?php
+                $list=DB::listDBs($link);$n=sizeof($list);
+                for($i=0;$i<$n;$i++)
+                {?>
                 <li>
-                    <a href="#">DAtabase</a>
+                    <a class="<?php if(DB::getSelectedDB()==$list[$i]){echo 'selected';}?>" href="/database/<?php echo $list[$i];?>"><?php echo $list[$i];?></a>
                 </li>
-                <li>
-                    <a href="#">Shortcuts</a>
-                </li>
-                <li>
-                    <a href="#">Overview</a>
-                </li>
-                <li>
-                    <a href="#">Events</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
+                <?php } ?>
+                <li><a href="/logout" style="color:#a94442;"><span class="glyphicon glyphicon-off"></span>Se deconnecter</a></li>
             </ul>
         </div>
         <div id="page-content-wrapper">
