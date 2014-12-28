@@ -1,4 +1,6 @@
-<?php if(!isset($isIndex)){die('');}?>
+<?php if(!isset($isIndex)){die('');}
+if($action == 'home'){DB::selectDB('');}
+else if(DB::getSelectedDB()!=''){header('Location: /database/'.DB::getSelectedDB());}?>
 hello,welcome to Easy Database Manager!<br>
 here we will be displaying server related informations, for example<br>
 

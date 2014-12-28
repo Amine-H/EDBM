@@ -25,7 +25,7 @@ class DB
 	}
 	public static function getSelectedDB()
 	{
-		return $_SESSION['database'];
+		return (isset($_SESSION['database']))?$_SESSION['database']:'';
 	}
 	public static function listDBs($link)
 	{
