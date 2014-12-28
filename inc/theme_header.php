@@ -1,4 +1,5 @@
-    <div id="wrapper">
+<div class="container">
+	<div id="wrapper" class="col-md-3">
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
