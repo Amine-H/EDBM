@@ -6,6 +6,9 @@
                         <h3>Easy Database Manager</h3>
                     </a>
                 </li>
+                <li>
+                    <a href="/database" style="color:#117ab7;"><span class="glyphicon glyphicon-plus"></span>créer nouveau</a>
+                </li>
                 <?php
                 $list=DB::listDBs($link);$n=sizeof($list);
                 for($i=0;$i<$n;$i++)
