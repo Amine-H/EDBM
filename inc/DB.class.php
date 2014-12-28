@@ -19,6 +19,14 @@ class DB
 	{
 		mysql_close($link);
 	}
+	public static function selectDB($input)
+	{
+		return $_SESSION['database']=$input;
+	}
+	public static function getSelectedDB()
+	{
+		return $_SESSION['database'];
+	}
 	public static function listDBs($link)
 	{
 		$list=array();

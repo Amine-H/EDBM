@@ -3,6 +3,7 @@ if(!isset($isIndex))die('');
 if(User::isConnected())header('Location: /');?>
 <div class="container">
       <form class="form-signin" role="form" action="_login" method="POST">
+        <div><img src="/img/logo.png"></div>
         <h2 class="form-signin-heading">Connection</h2>
         <label for="user" class="sr-only">Utilisateur</label>
         <input style="width:100%;" type="text" name="user" id="user" class="form-control" placeholder="Utilisateur" required autofocus>

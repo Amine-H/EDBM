@@ -127,3 +127,17 @@
         margin-right: 0;
     }
 }
+
+.table tr td,.table tr th
+{
+    width:100px;
+}
+
+.selected{
+    background-color: grey;
+    color: white !important;
+}
+
+.table-nonfluid {
+   width: auto;
+}

@@ -3,11 +3,15 @@
 	$isIndex=true;
 	require_once('inc/functions.php');
 	require_once('inc/config.php');
-	require_once('inc/user.php');
-	require_once('inc/DB.php');
+	require_once('inc/user.class.php');
+	require_once('inc/DB.class.php');
 	$routes = array('home',
 					'login',
 					'_login',
+					'table',
+					'_table',
+					'fonction',
+					'_fonction',
 					'procedure',
 					'_procedure',
 					'database',
@@ -60,8 +64,8 @@
 			else
 			{
 				$link=DB::start();
-				if(isset($_SESSION['database']))
-					mysql_query("USE ".$_SESSION['database']);
+				if($db=DB::getSelectedDB())
+					mysql_query("USE $db",$link);
 				require_once("/inc/theme_header.php");
 				require_once("/inc/".$action.".php");
 				require_once("/inc/theme_footer.php");

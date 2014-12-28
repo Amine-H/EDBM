@@ -24,6 +24,9 @@ class Procedure
 		$link = $input['link'];
 		$name = $input['name'];
 		$query = mysql_query("show create procedure $name",$link);
+		if(!$query)
+			return NULL;
+
 		if($row=mysql_fetch_array($query))
 		{
 			$formated=array();
@@ -33,6 +36,24 @@ class Procedure
 			$formated['params']=explode(' ',substr($result,strpos($result,'(')+1,strlen($result)-(strpos($result,'BEGIN')+8)));
 			$formated['code']=substr($result,strpos($result,'BEGIN'),strpos($result,'END'));
 			return $formated;
+		}
+		else
+			return NULL;
+	}
+	public static function listProcedures($input)
+	{
+		$database=$input['database'];
+		$link=$input['link'];
+		$query = mysql_query("SELECT routine_name FROM information_schema.routines WHERE routine_schema = '$database'",$link);
+		if($query)
+		{
+			$procedures=array();$n=mysql_num_rows($query);
+			for($i=0;$i<$n;$i++)
+			{
+				$row=mysql_fetch_assoc($query);
+				$procedures[$i]=$row['routine_name'];
+			}
+			return $procedures;
 		}
 		else
 			return NULL;

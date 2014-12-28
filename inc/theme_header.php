@@ -11,10 +11,10 @@
                 for($i=0;$i<$n;$i++)
                 {?>
                 <li>
-                    <a href="/database/<?php echo $list[$i];?>"><?php echo $list[$i];?></a>
+                    <a class="<?php if(DB::getSelectedDB()==$list[$i]){echo 'selected';}?>" href="/database/<?php echo $list[$i];?>"><?php echo $list[$i];?></a>
                 </li>
                 <?php } ?>
-                <li><a href="/logout"><span class="glyphicon glyphicon-off" style="color:red;">Se deconnecter</span></a></li>
+                <li><a href="/logout" style="color:#a94442;"><span class="glyphicon glyphicon-off"></span>Se deconnecter</a></li>
             </ul>
         </div>
         <div id="page-content-wrapper">
