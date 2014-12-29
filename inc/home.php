@@ -16,11 +16,9 @@ Apache/2.4.9 (Win32) OpenSSL/1.0.1g PHP/5.5.11<br>
 Version du client de base de données : libmysql - mysqlnd 5.0.11-dev - 20120503 - $Id: bf9ad53b11c9a57efdb1057292d73b928b8c5c77 $<br>
 Extension PHP : mysqli<br>
 
-create a database
-
 <form class="form-vertical" action="/_database" method="POST">
 <fieldset style="width:500px;display:block;">
-<legend>Créer Procédure</legend>
+<legend>Créer Base de données</legend>
 	<div class="control-group">
 		<label class="control-label" for="name">Base de données</label>
 		<div class="controls">
