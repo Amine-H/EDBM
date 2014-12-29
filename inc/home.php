@@ -20,9 +20,9 @@ create a database
 
 <form class="form-vertical" action="/_database" method="POST">
 <fieldset style="width:500px;display:block;">
-<legend>Créer Procédure</legend>
+<legend>Créer Base de Données</legend>
 	<div class="control-group">
-		<label class="control-label" for="name">Base de données</label>
+		<label class="control-label" for="name">NOM de la Base de données :</label>
 		<div class="controls">
 		 	<input class="form-control" rows="5"name="name" id="name">
 		</div>
