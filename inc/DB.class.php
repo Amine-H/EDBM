@@ -30,7 +30,7 @@ class DB
 	public static function listDBs($link)
 	{
 		$list=array();
-		$query=mysql_query("SHOW DATABASES",$link);
+		$query=mysql_query("SHOW DATABASES",$link);//i gauss it well raise an error in this point -_-
 		$n=mysql_num_rows($query);
 		for($i=0;$i<$n;$i++)
 		{

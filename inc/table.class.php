@@ -10,7 +10,7 @@ class Table{
 		$query .=$_POST["Tname"];
 		$query .=" ("
 		//to submit to all demand in creation of the table :D 
-		for($i=0;$i < sizeof($_POST["TC"]);$i++){//for now i don' now how to regroup this 
+		for($i=0;$i < sizeof($_POST["TC"]);$i++){
 			for($j=0;$j < sizeof($_POST["TC".$i]);$j++){
 				$query .=$_POST["Cname".$i]." ";
 				$query .=$_POST["Ctype".$i]."(".$_POST["CtypeLength".$i].") ";
@@ -31,9 +31,12 @@ class Table{
 //***********************************************************************
 	public static function Update($db,$_POST) //Update the table for $db database 
 	{
-		$query  ="UPDATE "._POST["Tname"]." ";
+		$query  ="UPDATE ".$_POST["Tname"]." ";
 		$query .="SET "//not finish yet i need to think deeply for this one 
-		$query .=" ;"
+		$query .=$_POST["TUpadatSet"]." "
+		$query .="where "
+		$query .=$_POST["TUpadatCondition"]." "
+		$query .=";"
 		$result = mysql_real_escape_string($query);
 		$result = mysqli_query($db,$query);
 		return $result;

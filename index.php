@@ -66,7 +66,7 @@
 			{
 				$link=DB::start();
 				if($db=DB::getSelectedDB())
-					mysql_query("USE $db",$link);
+					mysql_query("USE $db",$link);//this again can generate an error 
 				require_once("/inc/theme_header.php");
 				require_once("/inc/".$action.".php");
 				require_once("/inc/theme_footer.php");
