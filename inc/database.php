@@ -1,6 +1,11 @@
 <?php if(!isset($isIndex))die('');
 require_once('/inc/procedure.class.php');
 if(!isset($params[0]) || empty($params[0])){header('Location: /');}
+else if(!DB::exists(array('name'=>$params[0],'link'=>$link)))
+{
+	echo "Base de données inexistant!";
+	timedRedirect('/');
+}
 else
 {
 	if(DB::getSelectedDB() != $params[0])

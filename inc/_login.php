@@ -10,7 +10,7 @@ if($link !== false)
 {
 	echo "connection etablit!";
 	User::login(array('user'=>$user,'password'=>$password));
-	timedRedirect('/home');
+	header('Location: /home');
 }
 else
 {

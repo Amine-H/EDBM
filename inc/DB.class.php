@@ -21,14 +21,15 @@ class DB
 	}
 	public static function selectDB($input)
 	{
-		if(DB::getSelectedDB($input)!='')
-			return $_SESSION['database']=$input;
-		else
-			return '';
+		return $_SESSION['database']=$input;;
 	}
 	public static function getSelectedDB()
 	{
 		return (isset($_SESSION['database']))?$_SESSION['database']:'';
+	}
+	public static function exists($input)
+	{
+		return in_array($input['name'],DB::listDBs($input['link']));
 	}
 	public static function listDBs($link)
 	{
