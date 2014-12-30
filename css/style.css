@@ -128,11 +128,6 @@
     }
 }
 
-.table tr td,.table tr th
-{
-    width:100px;
-}
-
 .selected{
     background-color: grey;
     color: white !important;
@@ -140,4 +135,11 @@
 
 .table-nonfluid {
    width: auto;
+}
+
+.table-nonfluid *{
+    width: inherit;
+}
+.table-nonfluid input{
+    height: 100%;
 }
