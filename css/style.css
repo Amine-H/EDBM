@@ -143,3 +143,8 @@
 .table-nonfluid input{
     height: 100%;
 }
+
+#code
+{
+    width: 150% !important;
+}

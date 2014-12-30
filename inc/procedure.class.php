@@ -31,9 +31,24 @@ class Procedure
 		{
 			$formated=array();
 			$result=$row[2];
-
 			$formated['name']=$name;
-			$formated['params']=explode(' ',substr($result,strpos($result,'(')+1,strlen($result)-(strpos($result,'BEGIN')+8)));
+			$params_str=substr($result,strpos($result,'('),strpos($result,'BEGIN')-strpos($result,'('));
+			$params=explode(',',substr($params_str,strpos($params_str,'(')+1,strrpos($params_str,')')-1-strpos($params_str,'(')));
+			$n=sizeof($params);
+			for($i=0;$i<$n;$i++)
+			{
+				$formated['params'][$i]=explode(' ',trim($params[$i]));
+				if(strpos($formated['params'][$i][2],'('))
+				{
+					$str = $formated['params'][$i][2];
+					$formated['params'][$i][2]=substr($str,0,strpos($str,'('));
+					$formated['params'][$i][3]=substr($str,strpos($str,'(')+1,strlen($str)-strpos($str,'(')-2);
+				}
+				else
+				{
+					$formated['params'][$i][3]='';
+				}
+			}
 			$formated['code']=substr($result,strpos($result,'BEGIN'),strpos($result,'END'));
 			return $formated;
 		}

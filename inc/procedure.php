@@ -18,7 +18,7 @@ require_once('/inc/procedure.class.php');
 	 			'</td>'+
 	 			'<td><input name="param_name['+params_count+']" id="param_name_'+params_count+'" type="text"></td>'+
 	 			'<td>'+
-					'<select name="param_type['+params_count+']">'+
+					'<select name="param_type['+params_count+']" id="param_type_'+params_count+'">'+
 						'<option>INT</option>'+
 						'<option>VARCHAR</option>'+
 						'<option>DATE</option>'+
@@ -73,12 +73,12 @@ require_once('/inc/procedure.class.php');
 <div class="control-group">
 	<label class="control-label">Code</label>
 	<div class="controls">
-	 	<textarea class="form-control" rows="5" name="code" id="code"></textarea>
+	 	<textarea class="form-control" rows="8" name="code" id="code"></textarea>
 	</div>
 </div>
 <div class="control-group">
-	<div class="control">
-		<button type="submit" class="btn btn-primary">Ajouter</button>
+	<div class="controls">
+		<button type="submit" id="btn_submit" class="btn btn-primary">Ajouter</button>
 	</div>
 </div>
 </fieldset>
@@ -86,7 +86,7 @@ require_once('/inc/procedure.class.php');
 
 <?php
 
-if(isset($params[0]))
+if(isset($params[0]) && !empty($params[0]))
 {
 	$procedure = Procedure::getProcedure(array('link'=>$link,'name'=>$params[0]));
 	if($procedure)
@@ -94,11 +94,17 @@ if(isset($params[0]))
 		?>
 		<script type="text/javascript">
 			var procedure = <?php echo json_encode($procedure); ?>;
+			$('#btn_submit').html('Modifier');
 			$('#name').val(procedure.name);
-			addParam();
-			$('#param_dir_0').val(procedure.params[0]);
-			$('#param_name_0').val(procedure.params[1]);
-			$('#param_length_0').val(procedure.params[2]);
+			var params=procedure.params;
+			for(var i=0;i<params.length;i++)
+			{
+				addParam();
+				$('#param_dir_'+i).val(params[i][0]);
+				$('#param_name_'+i).val(params[i][1]);
+				$('#param_type_'+i).val(params[i][2]);
+				$('#param_length_'+i).val(params[i][3]);
+			}
 			$('#code').val(procedure.code);
 		</script>
 		<?php
@@ -107,6 +113,10 @@ if(isset($params[0]))
 	{
 		echo "<div class='alert alert-danger'>".mysql_error()."</div>";
 	}
+}
+else//creer procedure
+{
+
 }
 }
 ?>
