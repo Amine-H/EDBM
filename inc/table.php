@@ -1,22 +1,36 @@
 <?php if(!isset($isIndex))die('');
 require_once('/inc/table.class.php');
 
-
+$t=array();$ta=array();
 $t = Table::champ($params[0],$link);
+$ta = $t[0];
 print_r($t);
 ?>
 
 	 	<table class="table table-striped">
-	 	<?php
-		$n=mysql_num_rows($t);//compt des nbr de arry
-		for($i=0;$i<$n;$i++){?>
-		<tr>
-			<?php
-			$m=mysql_num_rows($t);//compt des nbr de arry
-			for($j=0;$j<$m;$j++){?>
+	 	<tr>
+		<?php
+		$ke=array_keys($ta);//compt des nbr de arry
+		print_r($ke);
+		$size = sizeof($ke);
+		$j=0;
+		for($j=0;$j<$size;$j++){?>
 			<th>
 				<?php
-				$nom//table 
+				echo $ke[$j];
+				?>
+			</th>
+		<?php
+		}
+		$m = sizeof($t);//compt des nbr de arry
+		for($i=0;$i<$m;$i++){?>
+		</tr>
+		<tr>
+			<?php
+			for($j=0;$j<$size;$j++){?>
+			<th>
+				<?php
+				echo $ta["{$ke[$j]}"];
 				?>
 			</th>
 			<?php
