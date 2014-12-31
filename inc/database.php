@@ -51,7 +51,7 @@ for($i=0;$i<$n;$i++)
 				<td><a href="/table/<?php echo $tables[$i];?>"><?php echo $tables[$i];?></a>
 					<a href="/tableUpdate"><img src="/img/update.png"></a>
 					<a href="/tableDEl" ><img src="/img/delete.png"></a>
-					<a href="/tableUpdate"><img src="/img/update.png"></a>
+					<a href="/tableUpdate"><img src="/img/edit.png"></a>
 				</td>
 				<?php }
 				else
