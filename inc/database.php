@@ -48,7 +48,11 @@ for($i=0;$i<$n;$i++)
 				<?php
 				if(isset($tables[$i]))
 				{ ?>
-				<td><a href="/table/<?php echo $tables[$i];?>"><?php echo $tables[$i];?></a></td>
+				<td><a href="/table/<?php echo $tables[$i];?>"><?php echo $tables[$i];?></a>
+					<a href="/tableUpdate"><img src="/img/update.png"></a>
+					<a href="/tableDEl" ><img src="/img/delete.png"></a>
+					<a href="/tableUpdate"><img src="/img/update.png"></a>
+				</td>
 				<?php }
 				else
 				{ ?>

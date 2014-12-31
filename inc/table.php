@@ -41,8 +41,8 @@ $ta = $t[0];
 	 	</table>
 		<table 	class="table table-striped">
 			<tr>
-	 			<td ><a href="/table/tableAdd"><span class="glyphicon glyphicon-plus"></span>créer nouveau</a></td>
-	 			<td ><a href="/table/tableUpdate"><span class="glyphicon glyphicon-plus"></span>Modifier</a></td>
-	 			<td ><a href="/table/tableDEl"><span class="glyphicon glyphicon-plus"></span>supprimer</a></td>
+	 			<td ><a href="/tableAdd"><span class="glyphicon glyphicon-plus"></span>créer nouveau</a></td>
+	 			<td ><a href="/tableUpdate"><span class="glyphicon glyphicon-plus"></span>Modifier</a></td>
+	 			<td ><a href="/tableDEl"><span class="glyphicon glyphicon-plus"></span>supprimer</a></td>
 	 		</tr>
 		</table>
