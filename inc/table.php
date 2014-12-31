@@ -4,14 +4,12 @@ require_once('/inc/table.class.php');
 $t=array();$ta=array();
 $t = Table::champ($params[0],$link);
 $ta = $t[0];
-print_r($t);
 ?>
 
 	 	<table class="table table-striped">
 	 	<tr>
 		<?php
-		$ke=array_keys($ta);//compt des nbr de arry
-		print_r($ke);
+		$ke=array_keys($ta);//compt des nbr de array
 		$size = sizeof($ke);
 		$j=0;
 		for($j=0;$j<$size;$j++){?>
