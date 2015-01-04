@@ -95,6 +95,7 @@ if(isset($params[0]) && !empty($params[0]))
 		<script type="text/javascript">
 			var procedure = <?php echo json_encode($procedure); ?>;
 			$('#btn_submit').html('Modifier');
+			$('#btn_submit').after($('<a>',{class:'btn btn-danger',html:'Supprimer',href:'/_rm_procedure/<?php echo $params[0];?>'}));
 			$('#name').val(procedure.name);
 			var params=procedure.params;
 			for(var i=0;i<params.length;i++)
@@ -113,10 +114,6 @@ if(isset($params[0]) && !empty($params[0]))
 	{
 		echo "<div class='alert alert-danger'>".mysql_error()."</div>";
 	}
-}
-else//creer procedure
-{
-
 }
 }
 ?>
