@@ -8,15 +8,25 @@ class Procedure
 {
 	private static function formatParams($input)
 	{
-		return $input;
+		$result = "";$n=sizeof($input['dir']);
+		for($i=0;$i<$n;$i++)
+		{
+			$result.=$input['dir'][$i]." ";
+			$result.=$input['name'][$i]." ";
+			$result.=$input['type'][$i];
+			if(!empty(trim($input['length'][$i])))
+				$result.="(".$input['length'][$i].")";
+			$result.=",";
+		}
+		return substr($result,0,strlen($result)-1);
 	}
 	public static function create($input)
 	{
 		$link = $input['link'];
 		$name = $input['name'];
 		$params = $input['params'];
-		$def = $input['def'];
-		$query = mysql_query("DELIMITER //\n CREATE PROCEDURE '$name' (".Procedure::formatParams($params).")\nBEGIN\n$def\nEND//\nDELIMITER;",$link);
+		$code = $input['code'];
+		$query = mysql_query("DELIMITER //\nCREATE PROCEDURE $name (".Procedure::formatParams($params).") BEGIN\n\n $code\n\nEND //\nDELIMITER;",$link);
 		return $query;
 	}
 	public static function getProcedure($input)
@@ -59,7 +69,7 @@ class Procedure
 	{
 		$database=$input['database'];
 		$link=$input['link'];
-		$query = mysql_query("SELECT routine_name FROM information_schema.routines WHERE routine_schema = '$database'",$link);
+		$query = mysql_query("SELECT routine_name FROM information_schema.routines WHERE routine_schema = '$database' and ROUTINE_TYPE = 'PROCEDURE'",$link);
 		if($query)
 		{
 			$procedures=array();$n=mysql_num_rows($query);
@@ -77,6 +87,7 @@ class Procedure
 	{
 		$link = $input['link'];
 		$name = $input['name'];
+		return mysql_query("DROP PROCEDURE IF EXISTS $name",$link);
 	}
 }
 

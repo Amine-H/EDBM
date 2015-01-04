@@ -9,13 +9,18 @@
 					'login',
 					'_login',
 					'table',
+					'tableAdd',
+					'tableUpdate',
+					'tableDel',
 					'_table',
 					'fonction',
 					'_fonction',
 					'procedure',
 					'_procedure',
+					'_rm_procedure',
 					'database',
 					'_database',
+					'console',
 					'logout');
 	$requestURI = explode('/',$_SERVER['REQUEST_URI']);
 	$scriptName = explode('/',$_SERVER['SCRIPT_NAME']);

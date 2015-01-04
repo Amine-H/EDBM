@@ -1,4 +1,5 @@
 <?php if(!isset($isIndex))die('');
+require_once('/inc/fonction.class.php');
 require_once('/inc/procedure.class.php');
 require_once('/inc/table.class.php');
 if(!isset($params[0]) || empty($params[0])){header('Location: /');}
@@ -33,13 +34,13 @@ else
 	 			<th>Procedures</th>
 	 		</tr>
 	 		<tr>
-	 			<td><a href="/table"><span class="glyphicon glyphicon-plus"></span>créer nouveau</a></td>
+	 			<td><a href="/tableAdd"><span class="glyphicon glyphicon-plus"></span>créer nouveau</a></td>
 	 			<td><a href="/fonction"><span class="glyphicon glyphicon-plus"></span>créer nouveau</a></td>
 	 			<td><a href="/procedure"><span class="glyphicon glyphicon-plus"></span>créer nouveau</a></td>
 	 		</tr>
 <?php
 $tables=Table::tablelist();$nt=sizeof($tables);
-$fonctions=array();$nf=sizeof($fonctions);
+$fonctions=Fonction::listFonctions(array('database'=>DB::getSelectedDB(),'link'=>$link));$nf=sizeof($fonctions);
 $procedures=Procedure::listProcedures(array('database'=>DB::getSelectedDB(),'link'=>$link));$np=sizeof($procedures);
 $n = max($nt,$nf,$np);
 for($i=0;$i<$n;$i++)
@@ -49,9 +50,8 @@ for($i=0;$i<$n;$i++)
 				if(isset($tables[$i]))
 				{ ?>
 				<td><a href="/table/<?php echo $tables[$i];?>"><?php echo $tables[$i];?></a>
-					<a href="/tableUpdate"><img src="/img/update.png"></a>
-					<a href="/tableDEl" ><img src="/img/delete.png"></a>
-					<a href="/tableUpdate"><img src="/img/edit.png"></a>
+					<a href="/tableUpdate/<?php echo $tables[$i];?>"><span style="color:green;" class="glyphicon glyphicon-pencil"></span></a>
+					<a href="/tableDel/<?php echo $tables[$i];?>"><span style="color:red;" class="glyphicon glyphicon-minus"></span></a>
 				</td>
 				<?php }
 				else
