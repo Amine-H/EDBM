@@ -4,71 +4,99 @@
 * this is a class to edit and create table for database for all user connected.
 */
 class Table{
-	public static function Create($db,$_POST) //Create the table for $db database 
+	public static function Create($db,$post) //Create the table for $db database 
 	{
 		$query  ="CREATE TABLE ";
-		$query .=$_POST["Tname"];
-		$query .=" ("
+		$query .=$post["Tname"];
+		$query .=" (";
 		//to submit to all demand in creation of the table :D 
-		for($i=0;$i < sizeof($_POST["TC"]);$i++){
-			for($j=0;$j < sizeof($_POST["TC".$i]);$j++){
-				$query .=$_POST["Cname".$i]." ";
-				$query .=$_POST["Ctype".$i]."(".$_POST["CtypeLength".$i].") ";
-				$query .=$_POST["CtypeOption".$i]." ";
-				$query .=$_POST["Cnull".$i]." ";
-				$query .=$_POST["Cdefault".$i]." ";
-				$query .=$_POST["CINC".$i]." ";
-				$query .=$_POST["CPRIMARYKEY".$i]." ";
+		for($i=0;$i < sizeof($post["TC"]);$i++){
+			for($j=0;$j < sizeof($post["TC".$i]);$j++){
+				$query .=$post["Cname".$i]." ";
+				$query .=$post["Ctype".$i]."(".$post["CtypeLength".$i].") ";
+				$query .=$post["Cdefault".$i]." ";
+				$query .=$post["Cnull".$i]." ";
+				$query .=$post["CINC".$i]." ";
+				$query .=$post["CIndex".$i]." ";
 			}
-			if($i+1 < sizeof($_POST["TC"]) )
+			if($i+1 < sizeof($post["TC"]) )
 			$query .=" , ";
 		}
-		$query .=" );"
+		$query .=" );";
 		$result = mysql_real_escape_string($query);
 		$result = mysqli_query($db,$query);
 		return $result;
 	}
 //***********************************************************************
-	public static function Update($db,$_POST) //Update the table for $db database 
+	public static function Update($db,$post) //Update the table for $db database 
 	{
-		$query  ="UPDATE ".$_POST["Tname"]." ";
-		$query .="SET "//not finish yet i need to think deeply for this one 
-		$query .=$_POST["TUpadatSet"]." "
-		$query .="where "
-		$query .=$_POST["TUpadatCondition"]." "
-		$query .=";"
+		$query  ="UPDATE ".$post["Tname"]." ";
+		$query .="SET ";//not finish yet i need to think deeply for this one 
+		$query .=$post["TUpadatSet"]." ";
+		$query .="where ";
+		$query .=$post["TUpadatCondition"]." ";
+		$query .=";";
 		$result = mysql_real_escape_string($query);
 		$result = mysqli_query($db,$query);
 		return $result;
 	}
 //***********************************************************************
-	public static function INSERT($db,$_POST) //INSERT INTO the table for $db database 
+	public static function INSERT($db,$post) //INSERT INTO the table for $db database 
 	{
-		$query  ="INSERT INTO "._POST["Tname"]." ";
+		$query  ="INSERT INTO ".$post["Tname"]." ";
 		$queryA="";
-		$queryB=""
+		$queryB="";
 		//parameter 
-		for($i=0;$i < sizeof($_POST["TIname"]);$i++){
-			if(isset($_POST["TIname".$i])){
-				$queryA .=$_POST["TIname".$i]." ";
-				$queryB .=$_POST["TIcontent".$i]." ";
+		for($i=0;$i < sizeof($post["TIname"]);$i++){
+			if(isset($post["TIname".$i])){
+				$queryA .=$post["TIname".$i]." ";
+				$queryB .=$post["TIcontent".$i]." ";
 			}else{
-				$queryA .=$_POST["TIname".$i]." ";
+				$queryA .=$post["TIname".$i]." ";
 				$queryB .="NULL ";
 			}
 			$queryA .=" , ";
 			$queryB .=" , ";
 		}
-		$query .="( "
+		$query .="( ";
 		$query .=$queryA." ";
-		$query .=") "
-		$query .="VALUES "
-		$query .="( "
+		$query .=") ";
+		$query .="VALUES ";
+		$query .="( ";
 		$query .=$queryB." ";
-		$query .=") "
-		$query .=" ;"
+		$query .=") ";
+		$query .=" ;";
 		$result = mysql_real_escape_string($query);
 		$result = mysqli_query($db,$query);
 		return $result;
 	}
+//***********************************************************************
+public static function tablelist() //Update the table for $db database 
+	{
+		$list=array();
+		$query = mysql_query("SHOW TABLES;");//i gauss it well raise an error in this point -_-
+		$n=mysql_num_rows($query);
+		for($i=0;$i<$n;$i++)
+		{
+			$tmp=mysql_fetch_array($query);
+			$list[$i]=$tmp[0];
+		}
+		return $list;
+	}
+//***********************************************************************
+public static function champ($table,$link) //Update the table for $db database 
+	{
+		$query  ="select * from ".$table." ;";
+		$query = mysql_real_escape_string($query);
+		$result = mysql_query($query,$link);
+		$n=mysql_num_rows($result);
+		$list=array();
+		for($i=0;$i<$n;$i++)
+		{
+			$tmp=mysql_fetch_assoc($result);
+			$list[$i]=$tmp;
+		}
+		return $list;
+	}
+}	
 ?>

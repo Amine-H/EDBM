@@ -1,5 +1,6 @@
 <?php if(!isset($isIndex))die('');
 require_once('/inc/procedure.class.php');
+require_once('/inc/table.class.php');
 if(!isset($params[0]) || empty($params[0])){header('Location: /');}
 else if(!DB::exists(array('name'=>$params[0],'link'=>$link)))
 {
@@ -37,7 +38,7 @@ else
 	 			<td><a href="/procedure"><span class="glyphicon glyphicon-plus"></span>créer nouveau</a></td>
 	 		</tr>
 <?php
-$tables=array();$nt=sizeof($tables);
+$tables=Table::tablelist();$nt=sizeof($tables);
 $fonctions=array();$nf=sizeof($fonctions);
 $procedures=Procedure::listProcedures(array('database'=>DB::getSelectedDB(),'link'=>$link));$np=sizeof($procedures);
 $n = max($nt,$nf,$np);
@@ -47,7 +48,11 @@ for($i=0;$i<$n;$i++)
 				<?php
 				if(isset($tables[$i]))
 				{ ?>
-				<td><a href="/table/<?php echo $tables[$i];?>"><?php echo $tables[$i];?></a></td>
+				<td><a href="/table/<?php echo $tables[$i];?>"><?php echo $tables[$i];?></a>
+					<a href="/tableUpdate"><img src="/img/update.png"></a>
+					<a href="/tableDEl" ><img src="/img/delete.png"></a>
+					<a href="/tableUpdate"><img src="/img/edit.png"></a>
+				</td>
 				<?php }
 				else
 				{ ?>
