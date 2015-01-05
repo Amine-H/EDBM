@@ -71,7 +71,7 @@ require_once('/inc/procedure.class.php');
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label">Code</label>
+	<label class="control-label" for="code">Code</label>
 	<div class="controls">
 	 	<textarea class="form-control" rows="8" name="code" id="code"></textarea>
 	</div>

@@ -23,6 +23,7 @@
                 <?php } ?>
                 <li><a href="/logout" style="color:#a94442;"><span class="glyphicon glyphicon-off"></span>Se deconnecter</a></li>
             </ul>
+
         </div>
         <div id="page-content-wrapper">
             <div class="container-fluid">

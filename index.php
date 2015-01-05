@@ -15,6 +15,7 @@
 					'_table',
 					'fonction',
 					'_fonction',
+					'_rm_fonction',
 					'procedure',
 					'_procedure',
 					'_rm_procedure',

@@ -26,7 +26,9 @@ class Procedure
 		$name = $input['name'];
 		$params = $input['params'];
 		$code = $input['code'];
-		$query = mysql_query("DELIMITER //\nCREATE PROCEDURE $name (".Procedure::formatParams($params).") BEGIN\n\n $code\n\nEND //\nDELIMITER;",$link);
+		$queryStr = "DELIMITER //\nCREATE PROCEDURE $name (".Procedure::formatParams($params).") BEGIN\n\n $code\n\nEND //\nDELIMITER;";
+		echo $queryStr;
+		$query = mysql_query($queryStr,$link);
 		return $query;
 	}
 	public static function getProcedure($input)
