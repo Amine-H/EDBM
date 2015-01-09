@@ -10,10 +10,18 @@ class DB
 		if(isset($_SESSION['user']))
 		{
 			$link = mysql_connect(EDBM_SERVER,$_SESSION['user'], $_SESSION['password']);
-			@mysql_set_charset("utf8");
+			$charset = DB::getCharset($link);
+			mysql_set_charset($charset);
 			return $link;
 		}
 		return NULL;
+	}
+	public static function getCharset($link)
+	{
+		$db_name = DB::getSelectedDB();
+		$query = mysql_query("SELECT default_character_set_name FROM information_schema.SCHEMATA WHERE schema_name = '".$db_name."';",$link);
+		$row=mysql_fetch_array($query);
+		return $row[0];
 	}
 	public static function end($link)
 	{
