@@ -42,21 +42,24 @@ class Fonction
 			$formated=array();
 			$result=$row[2];
 			$formated['name']=$name;
-			$params_str=substr($result,strpos($result,'('),strpos($result,'BEGIN')-strpos($result,'('));
-			$params=explode(',',substr($params_str,strpos($params_str,'(')+1,strrpos($params_str,')')-1-strpos($params_str,'(')));
+			$params_str=substr($result,strpos($result,'('),strpos($result,'RETURNS')-strpos($result,'('));
+			preg_match_all('#\((([^()]+|(?R))*)\)#', $params_str, $params);$params_str=$params[0][0];
+			$params_str=trim($params_str);$params_str=substr($params_str,1,strlen($params_str)-2);
+			$params = explode(',',$params_str);
+			print_r($params);
 			$n=sizeof($params);
 			for($i=0;$i<$n;$i++)
 			{
 				$formated['params'][$i]=explode(' ',trim($params[$i]));
-				if(strpos($formated['params'][$i][2],'('))
+				if(strpos($formated['params'][$i][1],'('))
 				{
-					$str = $formated['params'][$i][2];
-					$formated['params'][$i][2]=substr($str,0,strpos($str,'('));
-					$formated['params'][$i][3]=substr($str,strpos($str,'(')+1,strlen($str)-strpos($str,'(')-2);
+					$str = $formated['params'][$i][1];
+					$formated['params'][$i][1]=substr($str,0,strpos($str,'('));
+					$formated['params'][$i][2]=substr($str,strpos($str,'(')+1,strlen($str)-strpos($str,'(')-2);
 				}
 				else
 				{
-					$formated['params'][$i][3]='';
+					$formated['params'][$i][2]='';
 				}
 			}
 			$formated['code']=substr($result,strpos($result,'BEGIN'),strpos($result,'END'));

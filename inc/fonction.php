@@ -9,13 +9,6 @@ require_once('/inc/fonction.class.php');
 	function addParam()
 	{
 		var param='<tr class="param" id="param_'+params_count+'">'+
-	 			'<td>'+
-					'<select name="param_dir['+params_count+']" id="param_dir_'+params_count+'">'+
-	                    '<option>IN</option>'+
-	                    '<option>OUT</option>'+
-	                    '<option>INOUT</option>'+
-                	'</select>'+
-	 			'</td>'+
 	 			'<td><input name="param_name['+params_count+']" id="param_name_'+params_count+'" type="text"></td>'+
 	 			'<td>'+
 					'<select name="param_type['+params_count+']" id="param_type_'+params_count+'">'+
@@ -58,7 +51,6 @@ require_once('/inc/fonction.class.php');
 	<div class="controls">
 	 	<table class="table table-striped table-nonfluid" id="params_table">
 	 		<tr>
-	 			<th>Direction</th>
 	 			<th>Nom</th>
 	 			<th>Type</th>
 	 			<th>Taille/Valeurs</th>
@@ -117,10 +109,9 @@ if(isset($params[0]) && !empty($params[0]))
 			for(var i=0;i<params.length;i++)
 			{
 				addParam();
-				$('#param_dir_'+i).val(params[i][0]);
-				$('#param_name_'+i).val(params[i][1]);
-				$('#param_type_'+i).val(params[i][2]);
-				$('#param_length_'+i).val(params[i][3]);
+				$('#param_name_'+i).val(params[i][0]);
+				$('#param_type_'+i).val(params[i][1]);
+				$('#param_length_'+i).val(params[i][2]);
 			}
 			$('#code').val(fonction.code);
 		</script>
