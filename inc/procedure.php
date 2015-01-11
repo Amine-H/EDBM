@@ -2,7 +2,7 @@
 if(!isset($isIndex))die('');
 else
 {
-require_once('/inc/procedure.class.php');
+require_once(base_url().'/inc/procedure.class.php');
 ?>
 <script type="text/javascript">
 	params_count=0;

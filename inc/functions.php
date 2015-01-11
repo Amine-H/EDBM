@@ -6,5 +6,8 @@ function timedRedirect($location)
 	echo "<a href='$location'><p>si vous etes pas rediriger cliquer ici</p></a>";
 }
 
+function base_url(){
+	return $_SERVER['DOCUMENT_ROOT'];
+}
 
 ?>

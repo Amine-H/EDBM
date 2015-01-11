@@ -2,7 +2,7 @@
 if(!isset($isIndex))die('');
 else
 {
-	require_once('/inc/fonction.class.php');
+	require_once(base_url().'/inc/fonction.class.php');
 	$name = $_POST['name'];
 	$params = array('dir'=>$_POST['param_dir'],
 					'name'=>$_POST['param_name'],

@@ -1,10 +1,10 @@
 <?php
 	session_start();
 	$isIndex=true;
-	require_once('inc/functions.php');
-	require_once('inc/config.php');
-	require_once('inc/user.class.php');
-	require_once('inc/DB.class.php');
+	require_once('./inc/functions.php');
+	require_once('./inc/config.php');
+	require_once('./inc/user.class.php');
+	require_once('./inc/DB.class.php');
 	$routes = array('home',
 					'login',
 					'_login',
@@ -63,26 +63,26 @@
 		{
 			if(!User::isConnected() && $action!='_login')
 			{
-				require_once("/inc/login.php");
+				require_once("./inc/login.php");
 			}
 			else if($action == '_login')
 			{
-				require_once("/inc/_login.php");
+				require_once("./inc/_login.php");
 			}
 			else
 			{
 				$link=DB::start();
 				if($db=DB::getSelectedDB())
 					mysql_query("USE $db",$link);
-				require_once("/inc/theme_header.php");
-				require_once("/inc/".$action.".php");
-				require_once("/inc/theme_footer.php");
+				require_once("./inc/theme_header.php");
+				require_once("./inc/".$action.".php");
+				require_once("./inc/theme_footer.php");
 				DB::end($link);
 			}
 		}
 		else
 		{
-			require_once("/inc/error.php");
+			require_once("./inc/error.php");
 		}
 		?>
 	</body>

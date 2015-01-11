@@ -1,7 +1,7 @@
 <?php if(!isset($isIndex))die('');
-require_once('/inc/fonction.class.php');
-require_once('/inc/procedure.class.php');
-require_once('/inc/table.class.php');
+require_once(base_url().'/inc/fonction.class.php');
+require_once(base_url().'/inc/procedure.class.php');
+require_once(base_url().'/inc/table.class.php');
 if(!isset($params[0]) || empty($params[0])){header('Location: /');}
 else if(!DB::exists(array('name'=>$params[0],'link'=>$link)))
 {
