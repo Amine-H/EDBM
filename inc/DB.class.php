@@ -11,7 +11,7 @@ class DB
 		{
 			$link = mysql_connect(EDBM_SERVER,$_SESSION['user'], $_SESSION['password']);
 			$charset = DB::getCharset($link);
-			mysql_set_charset($charset);
+			@mysql_set_charset($charset);
 			return $link;
 		}
 		return NULL;

@@ -4,10 +4,9 @@ class Fonction
 {
 	private static function formatParams($input)
 	{
-		$result = "";$n=sizeof($input['dir']);
+		$result = "";$n=sizeof($input['name']);
 		for($i=0;$i<$n;$i++)
 		{
-			$result.=$input['dir'][$i]." ";
 			$result.=$input['name'][$i]." ";
 			$result.=$input['type'][$i];
 			if(!empty(trim($input['length'][$i])))
@@ -24,9 +23,9 @@ class Fonction
 		$return_type = $input['return_type'];
 		$return_size = $input['return_size'];
 		$code = $input['code'];
-		$queryStr = "DELIMITER //\nCREATE FUNCTION $name (".Fonction::formatParams($params).") BEGIN\n\n $code\n\nEND //\nDELIMITER;";
-		echo $queryStr;
-		$query = mysql_query($queryStr,$link);
+		if($query = mysql_query("DROP FUNCTION IF EXISTS $name;")){
+			$query = mysql_query("CREATE FUNCTION $name (".Fonction::formatParams($params).") RETURNS $return_type($return_size) MODIFIES SQL DATA BEGIN $code END;",$link);
+		}
 		return $query;
 	}
 	public static function getFonction($input)
@@ -40,17 +39,16 @@ class Fonction
 		if($row=mysql_fetch_array($query))
 		{
 			$formated=array();
-			$result=$row[2];
+			$result=strtolower($row[2]);
 			$formated['name']=$name;
-			$params_str=substr($result,strpos($result,'('),strpos($result,'RETURNS')-strpos($result,'('));
+			$params_str=substr($result,strpos($result,'('),strpos($result,'returns')-strpos($result,'('));
 			preg_match_all('#\((([^()]+|(?R))*)\)#', $params_str, $params);$params_str=$params[0][0];
 			$params_str=trim($params_str);$params_str=substr($params_str,1,strlen($params_str)-2);
 			$params = explode(',',$params_str);
-			print_r($params);
 			$n=sizeof($params);
 			for($i=0;$i<$n;$i++)
 			{
-				$formated['params'][$i]=explode(' ',trim($params[$i]));
+				$formated['params'][$i]=explode(' ',strtoupper(trim($params[$i])));
 				if(strpos($formated['params'][$i][1],'('))
 				{
 					$str = $formated['params'][$i][1];
@@ -62,7 +60,10 @@ class Fonction
 					$formated['params'][$i][2]='';
 				}
 			}
-			$formated['code']=substr($result,strpos($result,'BEGIN'),strpos($result,'END'));
+			preg_match('#returns\s\w+\(\d+\)#',$result,$tmp);$tmp=$tmp[0];
+			$formated['return_type']=strtoupper(trim(substr($tmp,7,strpos($tmp,'(')-7)));
+			$formated['return_size']=substr($tmp,strpos($tmp,'(')+1,strpos($tmp,')')-strpos($tmp,'(')-1);
+			$formated['code']=substr($result,strpos($result,'begin')+5,strpos($result,'end')-strpos($result,'begin')-5);
 			return $formated;
 		}
 		else

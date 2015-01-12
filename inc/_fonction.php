@@ -4,8 +4,7 @@ else
 {
 	require_once(base_url().'/inc/fonction.class.php');
 	$name = $_POST['name'];
-	$params = array('dir'=>$_POST['param_dir'],
-					'name'=>$_POST['param_name'],
+	$params = array('name'=>$_POST['param_name'],
 					'type'=>$_POST['param_type'],
 					'length'=>$_POST['param_length']);
 	$return_type = $_POST['return_type'];
