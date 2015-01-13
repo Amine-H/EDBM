@@ -50,7 +50,8 @@ for($i=0;$i<$n;$i++)
 				if(isset($tables[$i]))
 				{ ?>
 				<td><a href="/table/<?php echo $tables[$i];?>"><?php echo $tables[$i];?></a>
-					<a href="/tableUpdate/<?php echo $tables[$i];?>"><span style="color:green;" class="glyphicon glyphicon-pencil"></span></a>
+					<a href="/tableAdd/<?php echo $tables[$i];?>"><span style="color:black;" class="glyphicon glyphicon-plus"></span></a>
+					<a href="/tableUpdate/<?php echo $tables[$i];?>"><span style="color:green;" class="glyphicon glyphicon-pencil "></span></a>
 					<a href="/tableDel/<?php echo $tables[$i];?>"><span style="color:red;" class="glyphicon glyphicon-minus"></span></a>
 				</td>
 				<?php }

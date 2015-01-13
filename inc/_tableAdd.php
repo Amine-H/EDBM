@@ -1,22 +1,4 @@
-<?php if(!isset($isIndex))die('');
-require_once('/inc/table.class.php');
-
-?>
-<div class="">
-	 	<table class="table table-striped table-bordered">
-	 	<tr class="danger input-lg">
-			<th class="col-md-3" >Field</th>
-			<th class="col-md-4">Type</th>
-			<th class="col-md-1">Taille/Valeurs</th>
-			<th class="col-md-1">Null</th>
-			<th class="col-md-1">Default</th>
-			<th class="col-md-4">Extra</th>
-			<th class="col-md-1">A_I</th>
-		</tr>
-		<?php
-		$m = 2;//compt des nbr de arry
-		for($i=0;$i<$m;$i++){?>
-			<tr >
+	<tr >
 			<th>
 				<input type="text" class="form-control  input-lg" id="field<?php echo $i?>" name="field<?php echo $i?>">
 			</th>
@@ -52,8 +34,3 @@ require_once('/inc/table.class.php');
 			
 
 		</tr>
-		<?php
-		}
-		?>
-	 	</table>
-</div>

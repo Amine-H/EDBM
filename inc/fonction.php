@@ -113,6 +113,8 @@ if(isset($params[0]) && !empty($params[0]))
 				$('#param_type_'+i).val(params[i][1]);
 				$('#param_length_'+i).val(params[i][2]);
 			}
+			$('#return_type').val(fonction.return_type);
+			$('#return_size').val(fonction.return_size);
 			$('#code').val(fonction.code);
 		</script>
 		<?php

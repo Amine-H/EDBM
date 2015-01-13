@@ -42,14 +42,14 @@ class Procedure
 		if($row=mysql_fetch_array($query))
 		{
 			$formated=array();
-			$result=$row[2];
+			$result=strtolower($row[2]);
 			$formated['name']=$name;
-			$params_str=substr($result,strpos($result,'('),strpos($result,'BEGIN')-strpos($result,'('));
+			$params_str=substr($result,strpos($result,'('),strpos($result,'begin')-strpos($result,'('));
 			$params=explode(',',substr($params_str,strpos($params_str,'(')+1,strrpos($params_str,')')-1-strpos($params_str,'(')));
 			$n=sizeof($params);
 			for($i=0;$i<$n;$i++)
 			{
-				$formated['params'][$i]=explode(' ',trim($params[$i]));
+				$formated['params'][$i]=explode(' ',strtoupper(trim($params[$i])));
 				if(strpos($formated['params'][$i][2],'('))
 				{
 					$str = $formated['params'][$i][2];
@@ -61,7 +61,7 @@ class Procedure
 					$formated['params'][$i][3]='';
 				}
 			}
-			$formated['code']=substr($result,strpos($result,'BEGIN')+5,strpos($result,'END')-(strpos($result,'BEGIN')+5));
+			$formated['code']=substr($result,strpos($result,'begin')+5,strpos($result,'end')-(strpos($result,'begin')+5));
 			return $formated;
 		}
 		else
