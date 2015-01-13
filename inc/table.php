@@ -5,11 +5,9 @@ $t=array();$ta=array();
 $t = Table::champ($params[0],$link);
 $ta = $t[0];
 ?>
-
-	 	<table class="table table-striped">
-	 	<tr>
-		<?php
-		$ke=array_keys($ta);//compt des nbr de array
+<!--<div class="table-responsive ">need to think of this deeply next time-->
+	 	<table class="table table-striped table-bordered">
+	 	<tr class="danger"><?php $ke=array_keys($ta);//compt des nbr de array
 		$size = sizeof($ke);
 		$j=0;
 		for($j=0;$j<$size;$j++){?>
@@ -25,10 +23,11 @@ $ta = $t[0];
 		</tr>
 		<tr>
 			<?php
+			$ta = $t[$i];
 			for($j=0;$j<$size;$j++){?>
 			<th>
 				<?php
-				echo $ta["{$ke[$j]}"];
+				echo $ta[$ke[$j]];
 				?>
 			</th>
 			<?php
@@ -46,3 +45,4 @@ $ta = $t[0];
 	 			<td ><a href="/tableDEl"><span class="glyphicon glyphicon-plus"></span>supprimer</a></td>
 	 		</tr>
 		</table>
+<!--</div>-->
