@@ -26,9 +26,9 @@ class Procedure
 		$name = $input['name'];
 		$params = $input['params'];
 		$code = $input['code'];
-		$queryStr = "DELIMITER //\nCREATE PROCEDURE $name (".Procedure::formatParams($params).") BEGIN\n\n $code\n\nEND //\nDELIMITER;";
-		echo $queryStr;
-		$query = mysql_query($queryStr,$link);
+		if($query = mysql_query("DROP PROCEDURE IF EXISTS $name;")){
+			$query = mysql_query("CREATE PROCEDURE $name (".Procedure::formatParams($params).") BEGIN $code END;",$link);
+		}
 		return $query;
 	}
 	public static function getProcedure($input)
@@ -61,7 +61,7 @@ class Procedure
 					$formated['params'][$i][3]='';
 				}
 			}
-			$formated['code']=substr($result,strpos($result,'BEGIN'),strpos($result,'END'));
+			$formated['code']=substr($result,strpos($result,'BEGIN')+5,strpos($result,'END')-(strpos($result,'BEGIN')+5));
 			return $formated;
 		}
 		else
