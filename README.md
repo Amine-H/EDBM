@@ -5,7 +5,7 @@ EasyDatabaseManager is a simple project we made , let me sum it up , it's simila
 
 TODOS:
 	[+] classes to be created:
-		# DB_TABLE
+		# DB_TABLE 
 		# DB_FUNCTION
 		# DB_PROCEDURE
 	[+] create views for these classes

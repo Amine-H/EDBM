@@ -22,7 +22,7 @@ Extension PHP : mysqli<br>
 	<div class="control-group">
 		<label class="control-label" for="name">NOM de la Base de données :</label>
 		<div class="controls">
-		 	<input class="form-control" rows="5"name="name" id="name">
+		 	<input class="form-control" rows="5" name="name" id="name">
 		</div>
 	</div>
 	<input type="submit" class="btn btn-primary" value="Ajouter">
