@@ -1,5 +1,5 @@
 <?php if(!isset($isIndex))die('');
-require_once(base_url().'/inc/table.class.php');
+require_once('/inc/table.class.php');
 
 $t=array();$ta=array();
 $t = Table::champ($params[0],$link);

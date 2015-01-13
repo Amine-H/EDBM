@@ -4,8 +4,6 @@ if(User::isConnected())header('Location: /');
 $user = ($_POST['user']);//need to clean this data, for security reasons
 $password = ($_POST['password']);
 
-$link = mysql_connect(EDBM_SERVER,$user,$password);
-
 if($link !== false)
 {
 	echo "connection etablit!";

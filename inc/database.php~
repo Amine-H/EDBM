@@ -26,6 +26,10 @@ else
 	else
 	{
 ?>
+<?php
+
+print_r($_SERVER);
+?>
 	<div class="alert alert-info">Base de données:<?php echo DB::getSelectedDB();?></div>
 	 	<table class="table table-striped">
 	 		<tr>

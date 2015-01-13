@@ -7,7 +7,7 @@ function timedRedirect($location)
 }
 
 function base_url(){
-	return $_SERVER['DOCUMENT_ROOT'];
+	return '/opt/lampp/htdocs/EDBM/';
 }
 
 ?>
