@@ -28,7 +28,7 @@ require_once('/inc/table.class.php');
 				'<input type="text" class="form-control" id="default'+count+'" name="default'+count+'" >'+
 			'</th>'+
 			'<th>'+
-				'<select name="type'+count+'" id="type'+count+'" class="form-control">'+
+				'<select name="extra'+count+'" id="extra'+count+'" class="form-control">'+
 				  '<option value="none" selected>---</option>'+
 				  '<option value="primary key">PRIMARY KEY</option>'+
 				  '<option value="index">INDEX</option>'+
@@ -54,16 +54,15 @@ require_once('/inc/table.class.php');
 		},1000);
 	}
 </script>
-
+<form class="form-horizontal" action="/_tableAdd" method="POST">
 <div class="">
-	 <table class="table table-striped table-bordered">
-	 	<tr class="danger input-lg">
-
+	 <table class="table table-striped table-bordered table-nonfluid">
+	 	<tr class="danger">
 			<th colspan="8">
 				<div class="form-group">
-				    <label for="tablename" class="col-lg-3 control-label">Nom Du Tableau :</label>
-				    <div class="col-lg-9">
-				      <input type="text" class="form-control" id="tablename" placeholder="Nom">
+				    <label for="Tname" class="col-md-3 control-label">Nom Du Tableau :</label>
+				    <div class="col-md-9">
+				      <input type="text" class="form-control" id="Tname" name="Tname" placeholder="Nom">
 				    </div>
 				</div>
 			</th>
@@ -80,7 +79,8 @@ require_once('/inc/table.class.php');
 		</tr>
 		<tr id="button" class="success">
 	 		<td colspan="5"><button type="button" class="btn btn-default" onclick="javascript:AddRow();">Ajouter une colonne</button></td>
-	 		<td colspan="3"><button type="button" class="btn btn-default">Cree tableau</button></td>
+	 		<td colspan="3"><button type="submit" class="btn btn-default">Cree tableau</button></td>
 	 	</tr>
 	 </table>
 </div>
+</form>

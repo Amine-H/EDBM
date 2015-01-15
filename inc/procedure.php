@@ -84,36 +84,4 @@ require_once(base_url().'/inc/procedure.class.php');
 </fieldset>
 </form>
 
-<?php
 
-if(isset($params[0]) && !empty($params[0]))
-{
-	$procedure = Procedure::getProcedure(array('link'=>$link,'name'=>$params[0]));
-	if($procedure)
-	{//we got the data we should use javascript to fill the table with it
-		?>
-		<script type="text/javascript">
-			var procedure = <?php echo json_encode($procedure); ?>;
-			$('#btn_submit').html('Modifier');
-			$('#btn_submit').after($('<a>',{class:'btn btn-danger',html:'Supprimer',href:'/_rm_procedure/<?php echo $params[0];?>'}));
-			$('#name').val(procedure.name);
-			var params=procedure.params;
-			for(var i=0;i<params.length;i++)
-			{
-				addParam();
-				$('#param_dir_'+i).val(params[i][0]);
-				$('#param_name_'+i).val(params[i][1]);
-				$('#param_type_'+i).val(params[i][2]);
-				$('#param_length_'+i).val(params[i][3]);
-			}
-			$('#code').val(procedure.code);
-		</script>
-		<?php
-	}
-	else
-	{
-		echo "<div class='alert alert-danger'>".mysql_error()."</div>";
-	}
-}
-}
-?>

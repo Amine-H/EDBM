@@ -10,6 +10,7 @@
 					'_login',
 					'table',
 					'tableAdd',
+					'_tableAdd',
 					'tableUpdate',
 					'tableDel',
 					'_table',
