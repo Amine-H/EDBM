@@ -22,21 +22,21 @@ require_once(base_url().'/inc/table.class.php');
 				'<input type="number" class="form-control" id="taille'+count+'" name="taille'+count+'"  min="1" max="2000">'+
 			'</th>'+
 			'<th >'+
-				'<input type="checkbox" class="form-control" id="null'+count+'" name="null'+count+'" >'+
+				'<input type="checkbox" class="form-control" id="null'+count+'" name="null'+count+'" value="NOT NULL">'+
 			'</th>'+
 			'<th >'+
 				'<input type="text" class="form-control" id="default'+count+'" name="default'+count+'" >'+
 			'</th>'+
 			'<th>'+
 				'<select name="extra'+count+'" id="extra'+count+'" class="form-control">'+
-				  '<option value="none" selected>---</option>'+
+				  '<option value="" selected>---</option>'+
 				  '<option value="primary key">PRIMARY KEY</option>'+
 				  '<option value="index">INDEX</option>'+
 				  '<option value="unique" >UNIQUE</option>'+
 				'</select>'+
 			'</th>'+
 			'<th >'+
-				'<input type="checkbox" class="form-control" id="auto_increment'+count+'" name="auto_increment'+count+'" >'+
+				'<input type="checkbox" class="form-control" id="auto_increment'+count+'" name="auto_increment'+count+'" value="AUTO_INCREMENT">'+
 			'</th>'+
 			'<th><button type="button" class="btn btn-danger btn-lg" onclick="javascript:removeParam('+count+');"><span class="glyphicon glyphicon-remove"></span></button></th>'+
 		'</tr>';
@@ -83,7 +83,4 @@ require_once(base_url().'/inc/table.class.php');
 	 	</tr>
 	 </table>
 </div>
-<<<<<<< HEAD
 </form>
-=======
->>>>>>> 38ff2c1fb306d36505fe6b57f5d3312363f11ba7

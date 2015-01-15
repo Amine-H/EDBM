@@ -12,10 +12,12 @@ class Table{
 		//to submit to all demand in creation of the table :D 
 		for($i=0;$i < sizeof($post["TC"]);$i++){
 			for($j=0;$j < sizeof($post["TC".$i]);$j++){
-				$query .=$post["Cname".$i]." ";
-				$query .=$post["Ctype".$i]."(".$post["CtypeLength".$i].") ";
-				$query .=$post["Cdefault".$i]." ";
-				$query .=$post["Cnull".$i]." ";
+				$query .=$post["field".$i]." ";
+				$query .=$post["type".$i]."(".$post["taille".$i].") ";
+				if(isset($post["default".$i]))
+				$query .="DEFAULT '".$post["default".$i]."' ";
+
+				$query .=$post["null".$i]." ";
 				$query .=$post["CINC".$i]." ";
 				$query .=$post["CIndex".$i]." ";
 			}
