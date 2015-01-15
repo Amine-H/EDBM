@@ -9,7 +9,7 @@ class DB
 	{
 		if(isset($_SESSION['user']))
 		{
-			$link = mysql_connect(EDBM_SERVER,$_SESSION['user'], $_SESSION['password']);
+			$link = @mysql_connect(EDBM_SERVER,$_SESSION['user'], $_SESSION['password']);
 			$charset = DB::getCharset($link);
 			@mysql_set_charset($charset);
 			return $link;
