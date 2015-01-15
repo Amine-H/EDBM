@@ -1,5 +1,5 @@
 <?php if(!isset($isIndex))die('');
-require_once('/inc/table.class.php');
+require_once(base_url().'/inc/table.class.php');
 //require_once('/inc/_tableAdd.php');
 ?>
 <script type="text/javascript">
