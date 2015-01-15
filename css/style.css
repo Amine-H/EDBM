@@ -146,5 +146,14 @@
 
 #code
 {
-    width: 150% !important;
+    
+}
+
+#console-table{
+    max-width:600px;
+    width:600px;
+    overflow: auto;
+    overflow-y: scroll;
+    -ms-overflow-y: scroll;
+    white-space: nowrap;
 }

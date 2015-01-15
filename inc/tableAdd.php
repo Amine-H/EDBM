@@ -1,5 +1,5 @@
 <?php if(!isset($isIndex))die('');
-require_once('/inc/table.class.php');
+require_once(base_url().'/inc/table.class.php');
 //require_once('/inc/_tableAdd.php');
 ?>
 <script type="text/javascript">
@@ -83,4 +83,7 @@ require_once('/inc/table.class.php');
 	 	</tr>
 	 </table>
 </div>
+<<<<<<< HEAD
 </form>
+=======
+>>>>>>> 38ff2c1fb306d36505fe6b57f5d3312363f11ba7

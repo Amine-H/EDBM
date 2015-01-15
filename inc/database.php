@@ -26,12 +26,13 @@ else
 	else
 	{
 ?>
-	<div class="alert alert-info">Base de données:<?php echo DB::getSelectedDB();?></div>
+<div class="alert alert-info"><?php echo Lang::translate('database'); ?>:<?php echo DB::getSelectedDB();?></div>
+<a class="btn btn-primary" href="/console"><?php echo Lang::translate('execute_code'); ?></a>
 	 	<table class="table table-striped">
 	 		<tr>
-	 			<th>Tables</th>
-	 			<th>Fonctions</th>
-	 			<th>Procedures</th>
+	 			<th><?php echo Lang::translate('tables'); ?></th>
+	 			<th><?php echo Lang::translate('functions'); ?></th>
+	 			<th><?php echo Lang::translate('procedures'); ?></th>
 	 		</tr>
 	 		<tr>
 	 			<td><a href="/tableAdd"><span class="glyphicon glyphicon-plus"></span>créer nouveau</a></td>

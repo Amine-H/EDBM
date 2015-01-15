@@ -1,3 +1,9 @@
+<?php if(!isset($isIndex))die(''); ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#langs').val('<?php echo Lang::get(); ?>');
+    });
+</script>
 <div class="container">
 	<div id="wrapper" class="col-md-3">
         <div id="sidebar-wrapper">
@@ -6,6 +12,13 @@
                     <a href="/">
                         <h3>Easy Database Manager</h3>
                     </a>
+                </li>
+                <li>
+                    <select id='langs'>
+                        <option value='fr'>Francais</option>
+                        <option value='en'>English</option>
+                        <option value='ar'>العربية</option>
+                    </select>
                 </li>
                 <li>
                     <a href="/database" style="color:#117ab7;"><span class="glyphicon glyphicon-plus"></span>créer nouveau</a>
