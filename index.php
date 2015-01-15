@@ -22,6 +22,8 @@
 					'database',
 					'_database',
 					'console',
+                                        '_console',
+                                        'lang',
 					'logout');
 	$requestURI = explode('/',$_SERVER['REQUEST_URI']);
 	$scriptName = explode('/',$_SERVER['SCRIPT_NAME']);
@@ -48,6 +50,7 @@
 		<title>Easy Database Manager</title>
 		<script type="text/javascript" src="/js/jquery.min.js"></script>
 		<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+                <script type="text/javascript" src="/js/script.js"></script>
 		<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 		<link rel="icon" type="image/png" href="/img/icon.png">
 		<?php 

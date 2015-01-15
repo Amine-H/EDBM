@@ -27,6 +27,7 @@ else
 	{
 ?>
 	<div class="alert alert-info">Base de données:<?php echo DB::getSelectedDB();?></div>
+        <a class="btn btn-primary" href="/console">Executer code SQL</a>
 	 	<table class="table table-striped">
 	 		<tr>
 	 			<th>Tables</th>
