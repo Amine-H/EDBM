@@ -2,10 +2,10 @@ css/signin.css
 css/style.css
 css/bootstrap.min.css
 *~
-./css/*~
-./js/*~
-./inc/*~
-./img/*~
-./nbproject/private/
-./nbproject/project.properties
-./nbproject/project.xml
+css/*~
+js/*~
+inc/*~
+img/*~
+nbproject/private/
+nbproject/project.properties
+nbproject/project.xml

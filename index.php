@@ -5,6 +5,7 @@
 	require_once('./inc/config.php');
 	require_once('./inc/user.class.php');
 	require_once('./inc/DB.class.php');
+        require_once('./inc/lang.class.php');
 	$routes = array('home',
 					'login',
 					'_login',
@@ -59,6 +60,10 @@
 		<link rel="stylesheet" type="text/css" href="/css/signin.css">
 		<?php }?>
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
+                <?php
+                if(Lang::get()=='ar'){ ?>
+                <link rel="stylesheet" type="text/css" href="/css/arabic_style.css">
+                <?php } ?>
 </head>
 <body>
 		<?php

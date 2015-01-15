@@ -1,4 +1,9 @@
 <?php if(!isset($isIndex))die(''); ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#langs').val('<?php echo Lang::get(); ?>');
+    });
+</script>
 <div class="container">
 	<div id="wrapper" class="col-md-3">
         <div id="sidebar-wrapper">

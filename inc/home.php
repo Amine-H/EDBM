@@ -10,9 +10,9 @@ hello,welcome to Easy Database Manager!<br>
 
 <form class="form-vertical" action="/_database" method="POST">
 <fieldset style="width:500px;display:block;">
-<legend>Créer Base de données</legend>
+<legend><?php echo Lang::translate('create_database'); ?></legend>
 	<div class="control-group">
-		<label class="control-label" for="name">NOM de la Base de données :</label>
+		<label class="control-label" for="name"><?php echo Lang::translate('database_name'); ?> :</label>
 		<div class="controls">
 		 	<input class="form-control" rows="5" name="name" id="name">
 		</div>
