@@ -18,4 +18,5 @@ class database{
 		$result = mysqli_query($db,$query);
 		return $result;
 	}
+}
 ?>
