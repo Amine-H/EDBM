@@ -22,7 +22,7 @@ require_once(base_url().'/inc/table.class.php');
 				'<input type="number" class="form-control" id="taille'+count+'" name="taille'+count+'"  min="1" max="2000">'+
 			'</th>'+
 			'<th >'+
-				'<input type="checkbox" class="form-control" id="null'+count+'" name="null'+count+'" value="NOT NULL">'+
+				'<input type="checkbox" class="form-control" id="null'+count+'" name="null'+count+'" value="NULL">'+
 			'</th>'+
 			'<th >'+
 				'<input type="text" class="form-control" id="default'+count+'" name="default'+count+'" >'+
@@ -30,9 +30,9 @@ require_once(base_url().'/inc/table.class.php');
 			'<th>'+
 				'<select name="extra'+count+'" id="extra'+count+'" class="form-control">'+
 				  '<option value="" selected>---</option>'+
-				  '<option value="primary key">PRIMARY KEY</option>'+
-				  '<option value="index">INDEX</option>'+
-				  '<option value="unique" >UNIQUE</option>'+
+				  '<option value="PRIMARY KEY">PRIMARY KEY</option>'+
+				  '<option value="INDEX">INDEX</option>'+
+				  '<option value="UNIQUE" >UNIQUE</option>'+
 				'</select>'+
 			'</th>'+
 			'<th >'+
@@ -56,7 +56,7 @@ require_once(base_url().'/inc/table.class.php');
 </script>
 <form class="form-horizontal" action="/_tableAdd" method="POST">
 <div class="">
-	 <table class="table table-striped table-bordered table-nonfluid">
+	 <table class="table table-striped table-bordered table-nonfluid" name="TC" id="TC">
 	 	<tr class="danger">
 			<th colspan="8">
 				<div class="form-group">

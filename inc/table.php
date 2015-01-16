@@ -18,6 +18,10 @@ $ta = $t[0];
 			</th>
 		<?php
 		}
+		?>
+			<th>
+			</th>
+		<?php
 		$m = sizeof($t);//compt des nbr de arry
 		for($i=0;$i<$m;$i++){?>
 		</tr>

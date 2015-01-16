@@ -10,23 +10,25 @@ class Table{
 		$query .=$post["Tname"];
 		$query .=" (";
 		//to submit to all demand in creation of the table :D 
-		for($i=0;$i < sizeof($post["TC"]);$i++){
-			for($j=0;$j < sizeof($post["TC".$i]);$j++){
-				$query .=$post["field".$i]." ";
-				$query .=$post["type".$i]."(".$post["taille".$i].") ";
-				if(isset($post["default".$i]))
-				$query .="DEFAULT '".$post["default".$i]."' ";
-
-				$query .=$post["null".$i]." ";
-				$query .=$post["CINC".$i]." ";
-				$query .=$post["CIndex".$i]." ";
-			}
-			if($i+1 < sizeof($post["TC"]) )
-			$query .=" , ";
-		}
+		$i=0;//for($i=0;$i < sizeof($post["TC"]);$i++){
+			$query .=$post["field".$i]." ";
+			$query .=$post["type".$i]."(".$post["taille".$i].") ";
+			if($post["default".$i]!= "")
+			$query .="DEFAULT "."'".$post["default".$i]."'"." ";
+		    //if(!strcmp($post["null".$i],"")){
+		    	$query .="NOT NULL ";
+			/*}
+		    else{
+		    	$query .=$post["null".$i]." ";
+		    }*/
+			$query .=$post["extra".$i]." ";
+			//$query .=$post["auto_increment".$i]." ";
+			//$query .=" , ";
+			//ici il faut prender on compte le dernier element 
+			//}
 		$query .=" );";
-		$result = mysql_real_escape_string($query);
-		$result = mysqli_query($db,$query);
+		$re = mysql_real_escape_string($query);
+		$result = mysql_query($re);
 		return $result;
 	}
 //***********************************************************************
@@ -39,7 +41,7 @@ class Table{
 		$query .=$post["TUpadatCondition"]." ";
 		$query .=";";
 		$result = mysql_real_escape_string($query);
-		$result = mysqli_query($db,$query);
+		$result = mysqli_query($db,$result);
 		return $result;
 	}
 //***********************************************************************
@@ -69,7 +71,7 @@ class Table{
 		$query .=") ";
 		$query .=" ;";
 		$result = mysql_real_escape_string($query);
-		$result = mysqli_query($db,$query);
+		$result = mysqli_query($db,$result);
 		return $result;
 	}
 //***********************************************************************
