@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('#langs').click(function(){
+    $('#langs').change(function(){
         window.location='/lang/'+$('#langs').val();
     });
 });
