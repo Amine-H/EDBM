@@ -11,6 +11,7 @@
 					'_login',
 					'table',
 					'tableAdd',
+					'_rowdelete',
 					'_tableAdd',
 					'tableUpdate',
 					'tableDel',
