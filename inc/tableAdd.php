@@ -42,7 +42,7 @@ require_once(base_url().'/inc/table.class.php');
 		'</tr>';
 
 		$('#button').before(param);
-	 	$('#param_'+params_count).hide().fadeIn('normal');
+	 	$('#param_'+count).hide().fadeIn('normal');
 	 	count++;
 	}
 	function removeParam(input)

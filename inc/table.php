@@ -37,16 +37,19 @@ $ta = $t[0];
 			<?php
 			}
 			?>
+			<th>
+				<a href="/_rowdelete"><span style="color:red;" class="glyphicon glyphicon-trash"></span></a>
+			</th>
 		</tr>
 		<?php
 		}
 		?>
 	 	</table>
-		<table 	class="table table-striped">
+<!--		<table 	class="table table-striped">
 			<tr>
 	 			<td ><a href="/tableAdd"><span class="glyphicon glyphicon-plus"></span>créer nouveau</a></td>
 	 			<td ><a href="/tableUpdate"><span class="glyphicon glyphicon-plus"></span>Modifier</a></td>
 	 			<td ><a href="/tableDEl"><span class="glyphicon glyphicon-plus"></span>supprimer</a></td>
 	 		</tr>
 		</table>
-<!--</div>-->
+</div>-->
