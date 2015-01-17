@@ -3,17 +3,20 @@ require_once(base_url().'/inc/table.class.php');
 
 $t=array();$ta=array();
 $t = Table::champ($params[0],$link);
+
+if (empty($t))
+	$ta = $t ;
+else
 $ta = $t[0];
+$name= Table::columnlist($db,$params[0],$link);
 ?>
 <!--<div class="table-responsive ">need to think of this deeply next time-->
 	 	<table class="table table-striped table-bordered">
-	 	<tr class="danger"><?php $ke=array_keys($ta);//compt des nbr de array
-		$size = sizeof($ke);
-		$j=0;
+	 	<tr class="danger"><?php $size = sizeof($name);
 		for($j=0;$j<$size;$j++){?>
 			<th>
 				<?php
-				echo $ke[$j];
+				echo $name[$j];
 				?>
 			</th>
 		<?php
@@ -22,6 +25,7 @@ $ta = $t[0];
 			<th>
 			</th>
 		<?php
+		if (!empty($t)){
 		$m = sizeof($t);//compt des nbr de arry
 		for($i=0;$i<$m;$i++){?>
 		</tr>
@@ -31,7 +35,7 @@ $ta = $t[0];
 			for($j=0;$j<$size;$j++){?>
 			<th>
 				<?php
-				echo $ta[$ke[$j]];
+				echo $ta[$name[$j]];
 				?>
 			</th>
 			<?php
@@ -40,6 +44,25 @@ $ta = $t[0];
 			<th>
 				<a href="/_rowdelete"><span style="color:red;" class="glyphicon glyphicon-trash"></span></a>
 			</th>
+		</tr>
+		<?php
+		}
+		?>
+		<tr >
+			<th colspan="<?php echo $size+1?>" ><p class="text-center">
+				<a href="/tableInsert"><span style="color:green;" class="glyphicon glyphicon-plus"></span>Add Data</a>
+			</p>
+			</th>
+		</tr>
+		<?php
+		}else{
+			?>
+		<tr >
+			<th colspan="<?php echo $size+1?>" ><p class="text-center">Still empty 
+				<a href="/tableInsert"><span style="color:green;" class="glyphicon glyphicon-plus"></span>Add Data</a>
+			</p>
+			</th>
+			
 		</tr>
 		<?php
 		}

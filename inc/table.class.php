@@ -16,10 +16,10 @@ class Table{
 			if($post["default".$i]!= "")
 			$query .="DEFAULT "."'".$post["default".$i]."'"." ";
 		    if(isset($post["null".$i])){
-		    	$query .="NOT NULL ";
+		    	$query .="";
 			}
 		    else{
-		    	$query .="";
+		    	$query .="NOT NULL ";
 		    }
 			$query .=$post["extra".$i]." ";
 			if(isset($post["auto_increment".$i])){
@@ -91,10 +91,23 @@ public static function tablelist() //Update the table for $db database
 		return $list;
 	}
 //***********************************************************************
+public static function columnlist($db,$name,$link) //Update the table for $db database 
+	{
+		$list=array();
+		$fields = mysql_list_fields($db,$name,$link);//i gauss it well raise an error in this point -_-
+		
+		$columns = mysql_num_fields($fields);
+
+		for ($i = 0; $i < $columns; $i++) {
+		  $list[$i] = mysql_field_name($fields, $i);
+		}	
+		return $list;
+	}
+//***********************************************************************
 public static function champ($table,$link) //Update the table for $db database 
 	{
 		$query  ="select * from ".$table." ;";
-		$query = mysql_real_escape_string($query);
+		$query = mysql_real_escape_string($query);//i am thinking of switching to mysqli it's more fluid
 		$result = mysql_query($query,$link);
 		$n=mysql_num_rows($result);
 		$list=array();
@@ -104,6 +117,12 @@ public static function champ($table,$link) //Update the table for $db database
 			$list[$i]=$tmp;
 		}
 		return $list;
+	}
+/*****************************************************************************/
+	public static function drop($name) //Update the table for $db database 
+	{
+		$query = mysql_query("DROP TABLE ".$name." ;");
+		return $query;
 	}
 }	
 ?>
