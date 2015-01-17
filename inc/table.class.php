@@ -48,30 +48,38 @@ class Table{
 		return $result;
 	}
 //***********************************************************************
-	public static function INSERT($db,$post) //INSERT INTO the table for $db database 
+	public static function INSERT($db,$post,$name,$link) //INSERT INTO the table for $db database 
 	{
-		$query  ="INSERT INTO ".$post["Tname"]." ";
-		$queryA="";
-		$queryB="";
+		$query  ="INSERT INTO ".$name." ";
+		$queryA ="( ";
+		$queryB ="";
 		//parameter 
-		for($i=0;$i < sizeof($post["TIname"]);$i++){
-			if(isset($post["TIname".$i])){
-				$queryA .=$post["TIname".$i]." ";
-				$queryB .=$post["TIcontent".$i]." ";
-			}else{
-				$queryA .=$post["TIname".$i]." ";
-				$queryB .="NULL ";
-			}
-			$queryA .=" , ";
-			$queryB .=" , ";
+
+		$t=array();
+		$t = Table::columnlist($db,$name,$link);
+		$size = sizeof($t);
+		for($j=0;$j<$size;$j++){
+			$queryA .=$t[$j];
+			if(($size+1) != $j)
+				$queryA .=" , ";
 		}
-		$query .="( ";
-		$query .=$queryA." ";
-		$query .=") ";
-		$query .="VALUES ";
-		$query .="( ";
+		$queryA .=" ) ";
+		for($i=0;$post["line".$i."col0"];$i++){
+			$queryB .="( ";
+
+			for($j=0;$j<$size;$j++){
+				$queryB .=$post["line".$i."col".$j];
+				if(($size+1) != $j)
+					$queryA .=" , ";
+			}
+			$queryB .=" ) ";
+			if($post["line".($i+1)."col0"])
+				$queryB .=" ,";
+		}
+		
+		$query .=$queryA;
+		$query .=" VALUES ";
 		$query .=$queryB." ";
-		$query .=") ";
 		$query .=" ;";
 		$result = mysql_real_escape_string($query);
 		$result = mysqli_query($db,$result);

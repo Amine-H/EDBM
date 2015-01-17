@@ -1,7 +1,8 @@
 ##EDBM
 ====
 
-#EasyDatabaseManager is a simple project we made , let me sum it up , it's similar to phpmyadmin
+#EasyDatabaseManager is a simple project we made , let me sum it up , it's similar to phpmyadmin but for beginner 
+Much simple, So pertty :D and easy to use no background needed 
 
 ##TODOS:
 	*[+] classes to be created:

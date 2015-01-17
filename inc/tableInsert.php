@@ -8,7 +8,7 @@ require_once(base_url().'/inc/table.class.php');
 		var param ='<tr class="param" id="param_'+count+'">'
 		for (var i = 0; i < saize; i++) {
 			param +='<th>'+
-				'<input type="text" class="form-control  input-lg" id="line'+count+'col'+i+'" name="line'+count+'col'+i+'">'+
+				'<input type="text" value="NULL" class="form-control  input-lg" id="line'+count+'col'+i+'" name="line'+count+'col'+i+'">'+
 			'</th>';
 		};
 			param +='<th><button type="button" class="btn btn-danger btn-lg" onclick="javascript:removeParam('+count+');"><span class="glyphicon glyphicon-remove"></span></button></th>'+
