@@ -85,6 +85,22 @@ for($i=0;$i<$n;$i++)
 <?php }
 ?>
 	 	</table>
+<script>
+	 
+function alerteEffacement(){
+//On definit la question
+var question = 'Etes-vous sur de vouloir supprimer la base de donner '+ <?php echo $params[0]?> ;
+var confirmation = confirm(question) ;
+	//La question est validee
+	if(confirmation = true){
+
+	}
+});
+</script>
+	 <div style="position: absolute; bottom: -50px; right: 0px;">
+	 	<form action ="_dropdatabase" method="POST">
+		<input class='btn btn-danger btn-xs' name="removeDB" type="submit" value="Delete DataBase"/>
+	</div>
 <?php
 	}
 }

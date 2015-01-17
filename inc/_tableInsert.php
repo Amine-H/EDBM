@@ -1,4 +1,3 @@
-<pre>
 <?php
 require_once(base_url().'/inc/table.class.php');
 $result = Table::Create($db,$_POST);
@@ -7,7 +6,6 @@ if($result){
 	timedRedirect('/tableAdd');
 }else{
 	echo "<h1>le tableau n'a pas ete cree </h1>\n".mysql_error(); 
-	//timedRedirect("tableAdd");
+	timedRedirect("database");
 }
 ?>
-</pre>
