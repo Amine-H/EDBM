@@ -6,10 +6,11 @@ if($result){
 	echo "le tableau a ete cree ";
 	//timedRedirect('/tableAdd');
 }else{
-	echo "le tableau n'a pas ete cree ".mysql_error(); 
+	echo "le tableau n'a pas ete cree \n".mysql_error(); 
 	//timedRedirect("tableAdd");
 }
 
 print_r($_POST);
+echo count($_POST);
 ?>
 </pre>

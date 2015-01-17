@@ -10,22 +10,25 @@ class Table{
 		$query .=$post["Tname"];
 		$query .=" (";
 		//to submit to all demand in creation of the table :D 
-		$i=0;//for($i=0;$i < sizeof($post["TC"]);$i++){
+		for($i=0;isset($post["field".$i]);$i++){
 			$query .=$post["field".$i]." ";
 			$query .=$post["type".$i]."(".$post["taille".$i].") ";
 			if($post["default".$i]!= "")
 			$query .="DEFAULT "."'".$post["default".$i]."'"." ";
-		    //if(!strcmp($post["null".$i],"")){
+		    if(isset($post["null".$i])){
 		    	$query .="NOT NULL ";
-			/*}
+			}
 		    else{
-		    	$query .=$post["null".$i]." ";
-		    }*/
+		    	$query .="";
+		    }
 			$query .=$post["extra".$i]." ";
-			//$query .=$post["auto_increment".$i]." ";
-			//$query .=" , ";
+			if(isset($post["auto_increment".$i])){
+		    	$query .=$post["auto_increment".$i]." ";
+			}
+			if(isset($post["field".($i+1)]))
+				$query .=" , ";
 			//ici il faut prender on compte le dernier element 
-			//}
+			}
 		$query .=" );";
 		$re = mysql_real_escape_string($query);
 		$result = mysql_query($re);

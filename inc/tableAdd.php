@@ -12,7 +12,7 @@ require_once(base_url().'/inc/table.class.php');
 			'<th>'+
 				'<select name="type'+count+'" id="type'+count+'" class="form-control">'+
 				  '<option value="int" selected>Int</option>'+
-				  '<option value="varchr">Varchar</option>'+
+				  '<option value="varchar">Varchar</option>'+
 				  '<option value="text" >Text</option>'+
 				  '<option value="date">Date</option>'+
 				  '<option value="boolean">Boolean</option>'+
@@ -22,7 +22,7 @@ require_once(base_url().'/inc/table.class.php');
 				'<input type="number" class="form-control" id="taille'+count+'" name="taille'+count+'"  min="1" max="2000">'+
 			'</th>'+
 			'<th >'+
-				'<input type="checkbox" class="form-control" id="null'+count+'" name="null'+count+'" value="NULL">'+
+				'<input type="checkbox" class="form-control" id="null'+count+'" name="null'+count+'" value="nul">'+
 			'</th>'+
 			'<th >'+
 				'<input type="text" class="form-control" id="default'+count+'" name="default'+count+'" >'+
@@ -79,7 +79,7 @@ require_once(base_url().'/inc/table.class.php');
 		</tr>
 		<tr id="button" class="success">
 	 		<td colspan="5"><button type="button" class="btn btn-default" onclick="javascript:AddRow();">Ajouter une colonne</button></td>
-	 		<td colspan="3"><button type="submit" class="btn btn-default">Cree tableau</button></td>
+	 		<td colspan="3" ><button type="submit" class="btn btn-default">Cree tableau</button></td>
 	 	</tr>
 	 </table>
 </div>
