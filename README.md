@@ -5,14 +5,14 @@
 Much simple, So pertty :D and easy to use no background needed 
 
 ##TODOS:
+	*[+] I want to go forward know and adpter other version of SGBD
 	*[+] classes to be created:
-		**# DB_TABLE
-		**# add_row
-		**# delet_row
+		**# DB_TABLE // finish 
+		**# delet_table or DB // finish 
 		**# ~~DB_FUNCTION~~
 		**# ~~DB_PROCEDURE~~
 	*[+] views to be created:
-		**# DB_TABLE
+		**# DB_TABLE // finish 
 		**# ~~DB_FUNCTION~~
 		**# ~~DB_PROCEDURE~~
 	*[+] ~~make the menu adapt a little more with the context wanted~~
@@ -21,3 +21,5 @@ Much simple, So pertty :D and easy to use no background needed
 		**# English
 		**# Arabic
 		**# fu.. it let's make a french version
+
+
