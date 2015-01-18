@@ -14,7 +14,7 @@ class database{
 	public static function drop($db) //Create database 
 	{
 		$query = "DROP DATABASE ".$db." ;";
-		$result = mysqli_query($db,$query);
+		$result = mysql_query($query);
 		return $result;
 	}
 }

@@ -8,7 +8,7 @@ require_once(base_url().'/inc/table.class.php');
 		var param ='<tr class="param" id="param_'+count+'">'
 		for (var i = 0; i < saize; i++) {
 			param +='<th>'+
-				'<input type="text" value="NULL" class="form-control  input-lg" id="line'+count+'col'+i+'" name="line'+count+'col'+i+'">'+
+				'<input type="text" value=" " placeholder="" class="form-control  input-lg" id="line'+count+'col'+i+'" name="line'+count+'col'+i+'">'+
 			'</th>';
 		};
 			param +='<th><button type="button" class="btn btn-danger btn-lg" onclick="javascript:removeParam('+count+');"><span class="glyphicon glyphicon-remove"></span></button></th>'+
@@ -32,7 +32,7 @@ $name=array();
 $name= Table::columnlist($db,$params[0],$link);
 ?>
 <!--<div class="table-responsive ">need to think of this deeply next time-->
-<form action="/_tableInsert" method="post">
+<form action="/_tableInsert/<?php echo $params[0]?>" method="post">
 	 	<table class="table table-striped table-bordered">
 	 	<tr class="danger"><?php $size = sizeof($name);
 		for($j=0;$j<$size;$j++){?>

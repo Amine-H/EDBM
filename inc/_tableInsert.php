@@ -1,18 +1,19 @@
 <?php
 require_once(base_url().'/inc/table.class.php');
 
-
-		//$query  ="INSERT INTO ".$params[0]." ";
+$nameit = $params[0];// i dont know but somehow i can't give it $params[0] for the moment
+		$query  ="INSERT INTO ".$nameit." ";
 		$queryA ="( ";
 		$queryB ="";
 		//parameter 
 
-		$t=array();
-		$t = Table::columnlist($db,$params[0],$link);
-		$size = sizeof($t);
+		$name=array();
+		
+		$name= Table::columnlist($db,$nameit,$link);
+		$size = sizeof($name);
 		for($j=0;$j<$size;$j++){
-			$queryA .=$t[$j];
-			if(($size+1) != $j)
+			$queryA .= $name[$j];
+			if(($size) != ($j+1))
 				$queryA .=" , ";
 		}
 		$queryA .=" ) ";
@@ -20,9 +21,9 @@ require_once(base_url().'/inc/table.class.php');
 			$queryB .="( ";
 
 			for($j=0;$j<$size;$j++){
-				$queryB .=$_POST["line".$i."col".$j];
-				if(($size+1) != $j)
-					$queryA .=" , ";
+				$queryB .="'".$_POST["line".$i."col".$j]."' ";
+				if(($size) != ($j+1))
+					$queryB .=" , ";
 			}
 			$queryB .=" ) ";
 			if(isset($_POST["line".($i+1)."col0"]))
@@ -36,7 +37,7 @@ require_once(base_url().'/inc/table.class.php');
 
 echo $query ; 
 
-//$result = Table::INSERT($db,$_POST,$params[0],$link);
+$result = Table::INSERT($query);
 if($result){
 	echo "<h1>le tableau a ete Remplier </h1>";
 	//timedRedirect('/tableAdd');

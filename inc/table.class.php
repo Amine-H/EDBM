@@ -48,9 +48,9 @@ class Table{
 		return $result;
 	}
 //***********************************************************************
-	public static function INSERT($db,$post,$name,$link) //INSERT INTO the table for $db database 
+	public static function INSERT($query) //INSERT INTO the table for $db database 
 	{
-		$query  ="INSERT INTO ".$name." ";
+		/*$query  ="INSERT INTO ".$name." ";
 		$queryA ="( ";
 		$queryB ="";
 		//parameter 
@@ -64,7 +64,7 @@ class Table{
 				$queryA .=" , ";
 		}
 		$queryA .=" ) ";
-		for($i=0;$post["line".$i."col0"];$i++){
+		for($i=0;isset($post["line".$i."col0"]);$i++){
 			$queryB .="( ";
 
 			for($j=0;$j<$size;$j++){
@@ -73,17 +73,17 @@ class Table{
 					$queryA .=" , ";
 			}
 			$queryB .=" ) ";
-			if($post["line".($i+1)."col0"])
+			if(isset($post["line".($i+1)."col0"]))
 				$queryB .=" ,";
 		}
 		
 		$query .=$queryA;
 		$query .=" VALUES ";
 		$query .=$queryB." ";
-		$query .=" ;";
-		$result = mysql_real_escape_string($query);
-		$result = mysqli_query($db,$result);
-		return $result;
+		$query .=" ;";*/
+		$result = ($query);
+		$re = mysql_query($result);
+		return $re;
 	}
 //***********************************************************************
 public static function tablelist() //Update the table for $db database 

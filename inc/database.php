@@ -98,7 +98,7 @@ var confirmation = confirm(question) ;
 });
 </script>
 	 <div style="position: absolute; bottom: -50px; right: 0px;">
-	 	<form action ="_dropdatabase" method="POST">
+	 	<form action ="/_dropdatabase/<?php echo $params[0]?>" method="POST">
 		<input class='btn btn-danger btn-xs' name="removeDB" type="submit" value="Delete DataBase"/>
 	</div>
 <?php
