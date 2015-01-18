@@ -5,7 +5,7 @@
 	require_once('./inc/config.php');
 	require_once('./inc/user.class.php');
 	require_once('./inc/DB.class.php');
-        require_once('./inc/lang.class.php');
+	require_once('./inc/lang.class.php');
 	$routes = array('home',
 					'login',
 					'_login',
@@ -28,8 +28,7 @@
 					'database',
 					'_database',
 					'console',
-                                        '_console',
-                                        'lang',
+                    'lang',
 					'logout');
 	$requestURI = explode('/',$_SERVER['REQUEST_URI']);
 	$scriptName = explode('/',$_SERVER['SCRIPT_NAME']);
@@ -74,6 +73,7 @@
 		<?php
 		if(in_array($action,$routes))
 		{
+			Lang::init();
 			if(!User::isConnected() && $action!='_login')
 			{
 				require_once("./inc/login.php");

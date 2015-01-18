@@ -48,8 +48,8 @@ $name= Table::columnlist($db,$params[0],$link);
 			</th>
 		</tr>
 		<tr id="button" class="success">
-	 		<td colspan="<?php echo intval($size/2) ?>"><button type="button" class="btn btn-default" onclick="javascript:AddRow(<?php echo $size ?>);">Ajouter une colonne</button></td>
-	 		<td colspan="<?php echo intval($size -intval($size/2) +1) ?>"><input type="submit" class="btn btn-default" value="Valide"/></td>
+	 		<td colspan="<?php echo intval($size/2) ?>"><button type="button" class="btn btn-default" onclick="javascript:AddRow(<?php echo $size ?>);"><?php echo Lang::translate('add_row'); ?></button></td>
+	 		<td colspan="<?php echo intval($size -intval($size/2) +1) ?>"><input type="submit" class="btn btn-default" value="<?php echo Lang::translate('insert'); ?>"/></td>
 	 	</tr>
 	 	</table>
 </form>

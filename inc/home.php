@@ -1,7 +1,7 @@
 <?php if(!isset($isIndex)){die('');} // need to cheek this out 
 if($action == 'home'){DB::selectDB('');}
 else if(DB::getSelectedDB()!=''){header('Location: /database/'.DB::getSelectedDB());}?>
-hello,welcome to Easy Database Manager!<br>
+<?php echo Lang::translate('EDBM_welcome'); ?><br>
 <?php
     echo "server at :".mysql_get_host_info($link)."<br/>";
     echo "OS :".mysql_get_server_info($link)."<br/>";
@@ -17,6 +17,6 @@ hello,welcome to Easy Database Manager!<br>
 		 	<input class="form-control" rows="5" name="name" id="name">
 		</div>
 	</div>
-	<input type="submit" class="btn btn-primary" value="Ajouter">
+	<input type="submit" class="btn btn-primary" value="<?php echo Lang::translate('add'); ?>">
 </fieldset>
 </form>

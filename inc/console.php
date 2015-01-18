@@ -1,7 +1,7 @@
 <?php if(!isset($isIndex))die(''); ?>
 <?php
     $alert_type="info";
-    $alert_message="inserer votre code";
+    $alert_message=Lang::translate('insert_code');
     if(isset($_POST['console'])){
         $query = mysql_query($_POST['console'],$link);
         if(!$query){
@@ -40,7 +40,7 @@
 </script>
 <form action="/console" method="POST">
     <div class="control-group">
-            <label class="control-label" for="console">Console</label>
+            <label class="control-label" for="console"><?php echo Lang::translate('console'); ?></label>
             <div class="controls">
                 <textarea id="console" name="console" class="form-control" rows="10">
                 <?php
@@ -50,9 +50,10 @@
                 ?>
                 </textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Executer</button>
+            <button type="submit" class="btn btn-primary"><?php echo Lang::translate('execute'); ?></button>
     </div>
     <div class="alert alert-<?php echo $alert_type; ?>" role="alert">
+        <div><?php echo Lang::translate('code_executed'); ?></div>
         <?php echo $alert_message; ?>
     </div>
 </form>

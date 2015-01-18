@@ -10,7 +10,7 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="/">
-                        <h3>Easy Database Manager</h3>
+                        <h4><span class="glyphicon glyphicon-home"></span><?php echo Lang::translate('home'); ?></h4>
                     </a>
                 </li>
                 <li>
@@ -21,7 +21,7 @@
                     </select>
                 </li>
                 <li>
-                    <a href="/database" style="color:#117ab7;"><span class="glyphicon glyphicon-plus"></span>créer nouveau</a>
+                    <a href="/database" style="color:#117ab7;"><span class="glyphicon glyphicon-plus"></span><?php echo Lang::translate('add_new'); ?></a>
                 </li>
                 <?php
                 $list=DB::listDBs($link);
@@ -34,7 +34,7 @@
 					{echo 'selected';}?>" href="/database/<?php echo $list[$i];?>"><?php echo $list[$i];?></a>
                 </li>
                 <?php } ?>
-                <li><a href="/logout" style="color:#a94442;"><span class="glyphicon glyphicon-off"></span>Se deconnecter</a></li>
+                <li><a href="/logout" style="color:#a94442;"><span class="glyphicon glyphicon-off"></span><?php echo Lang::translate('logout'); ?></a></li>
             </ul>
 
         </div>

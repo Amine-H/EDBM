@@ -18,8 +18,11 @@ class User
 	}
 	public static function logout()
 	{
+		$lang=$_SESSION['lang'];
 		session_destroy();
 		unset($_SESSION);
+		session_start();//i want only the lang to stay unchanged
+		$_SESSION['lang']=$lang;
 	}
 }
 

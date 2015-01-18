@@ -35,9 +35,9 @@ else
 	 			<th><?php echo Lang::translate('procedures'); ?></th>
 	 		</tr>
 	 		<tr>
-	 			<td><a href="/tableAdd"><span class="glyphicon glyphicon-plus"></span>créer nouveau</a></td>
-	 			<td><a href="/fonction"><span class="glyphicon glyphicon-plus"></span>créer nouveau</a></td>
-	 			<td><a href="/procedure"><span class="glyphicon glyphicon-plus"></span>créer nouveau</a></td>
+	 			<td><a href="/tableAdd"><span class="glyphicon glyphicon-plus"></span><?php echo Lang::translate('add_new'); ?></a></td>
+	 			<td><a href="/fonction"><span class="glyphicon glyphicon-plus"></span><?php echo Lang::translate('add_new'); ?></a></td>
+	 			<td><a href="/procedure"><span class="glyphicon glyphicon-plus"></span><?php echo Lang::translate('add_new'); ?></a></td>
 	 		</tr>
 <?php
 $tables=Table::tablelist();$nt=sizeof($tables);
@@ -99,7 +99,7 @@ var confirmation = confirm(question) ;
 </script>
 	 <div style="position: absolute; bottom: -50px; right: 0px;">
 	 	<form action ="/_dropdatabase/<?php echo $params[0]?>" method="POST">
-		<input class='btn btn-danger btn-xs' name="removeDB" type="submit" value="Delete DataBase"/>
+		<input class='btn btn-danger btn-xs' name="removeDB" type="submit" value="<?php echo Lang::translate('delete_database'); ?>"/>
 	</div>
 <?php
 	}

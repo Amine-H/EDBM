@@ -7,7 +7,7 @@ if(!isset($isIndex))die('');
  */
 if(isset($params[0])){
     Lang::set($params[0]);
-    header('Location: /');
+    redirectToLast();
 }
 
 

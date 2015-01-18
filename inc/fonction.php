@@ -26,6 +26,7 @@ require_once(base_url().'/inc/fonction.class.php');
 	}
 	function removeParam(input)
 	{
+		params_count--;
 		$('#param_'+input).fadeOut('normal');
 		setTimeout(function()
 		{
@@ -35,35 +36,35 @@ require_once(base_url().'/inc/fonction.class.php');
 </script>
 <form class="form-horizontal" action="/_fonction" method="POST">
 <fieldset style="width:500px;display:block;">
-<legend>Créer Fonction</legend>
+<legend><?php echo Lang::translate('create_function');?></legend>
 
 <!-- Text input-->
 <div class="control-group">
-	<label class="control-label" for="name">Nom de la fonction</label>
+	<label class="control-label" for="name"><?php echo Lang::translate('function_name');?></label>
 	<div class="controls">
-	 	<input id="name" name="name" type="text" placeholder="Nom de la procédure" class="input-xlarge" required="">
+	 	<input id="name" name="name" type="text" placeholder="<?php echo Lang::translate('function_name');?>" class="input-xlarge" required="">
 	</div>
 </div>
 
 <!-- Text input-->
 <div class="control-group">
-	<label class="control-label">Paramètres</label>
+	<label class="control-label"><?php echo Lang::translate('parameters');?></label>
 	<div class="controls">
 	 	<table class="table table-striped table-nonfluid" id="params_table">
 	 		<tr>
-	 			<th>Nom</th>
-	 			<th>Type</th>
-	 			<th>Taille/Valeurs</th>
+	 			<th><?php echo Lang::translate('name');?></th>
+	 			<th><?php echo Lang::translate('type');?></th>
+	 			<th><?php echo Lang::translate('size');?></th>
 	 			<th></th>
 	 		</tr>
 	 		<tr id="button">
-	 			<td colspan="5"><button type="button" class="btn btn-default" onclick="javascript:addParam();">Ajouter un paramètre</button></td>
+	 			<td colspan="5"><button type="button" class="btn btn-default" onclick="javascript:addParam();"><?php echo Lang::translate('add_parameter');?></button></td>
 	 		</tr>
 	 	</table>
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="return_type">Type retourné</label>
+	<label class="control-label" for="return_type"><?php echo Lang::translate('return_type');?></label>
 	<div class="controls">
 		<select name="return_type" id="return_type">
 			<option>INT</option>
@@ -73,20 +74,20 @@ require_once(base_url().'/inc/fonction.class.php');
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="return_size">Taille</label>
+	<label class="control-label" for="return_size"><?php echo Lang::translate('size');?></label>
 	<div class="controls">
 		<input type="text" name="return_size" id="return_size">
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="code">Code</label>
+	<label class="control-label" for="code"><?php echo Lang::translate('code');?></label>
 	<div class="controls">
 	 	<textarea class="form-control" rows="8" name="code" id="code"></textarea>
 	</div>
 </div>
 <div class="control-group">
 	<div class="controls">
-		<button type="submit" id="btn_submit" class="btn btn-primary">Ajouter</button>
+		<button type="submit" id="btn_submit" class="btn btn-primary"><?php echo Lang::translate('add');?></button>
 	</div>
 </div>
 </fieldset>
@@ -102,8 +103,8 @@ if(isset($params[0]) && !empty($params[0]))
 		?>
 		<script type="text/javascript">
 			var fonction = <?php echo json_encode($fonction); ?>;
-			$('#btn_submit').html('Modifier');
-			$('#btn_submit').after($('<a>',{class:'btn btn-danger',html:'Supprimer',href:'/_rm_fonction/<?php echo $params[0];?>'}));
+			$('#btn_submit').html('<?php echo Lang::translate("update"); ?>');
+			$('#btn_submit').after($('<a>',{class:'btn btn-danger',html:'<?php echo Lang::translate("delete"); ?>',href:'/_rm_fonction/<?php echo $params[0];?>'}));
 			$('#name').val(fonction.name);
 			var params=fonction.params;
 			for(var i=0;i<params.length;i++)

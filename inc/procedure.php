@@ -33,6 +33,7 @@ require_once(base_url().'/inc/procedure.class.php');
 	}
 	function removeParam(input)
 	{
+		params_count--;
 		$('#param_'+input).fadeOut('normal');
 		setTimeout(function()
 		{
@@ -42,43 +43,43 @@ require_once(base_url().'/inc/procedure.class.php');
 </script>
 <form class="form-horizontal" action="/_procedure" method="POST">
 <fieldset style="width:500px;display:block;">
-<legend>Créer Procédure</legend>
+<legend><?php echo Lang::translate('create_procedure');?></legend>
 
 <!-- Text input-->
 <div class="control-group">
-	<label class="control-label" for="name">Nom de la procédure</label>
+	<label class="control-label" for="name"><?php echo Lang::translate('procedure_name');?></label>
 	<div class="controls">
-	 	<input id="name" name="name" type="text" placeholder="Nom de la procédure" class="input-xlarge" required="">
+	 	<input id="name" name="name" type="text" placeholder="<?php echo Lang::translate('procedure_name');?>" class="input-xlarge" required="">
 	</div>
 </div>
 
 <!-- Text input-->
 <div class="control-group">
-	<label class="control-label">Paramètres</label>
+	<label class="control-label"><?php echo Lang::translate('parameters');?></label>
 	<div class="controls">
 	 	<table class="table table-striped table-nonfluid" id="params_table">
 	 		<tr>
-	 			<th>Direction</th>
-	 			<th>Nom</th>
-	 			<th>Type</th>
-	 			<th>Taille/Valeurs</th>
+	 			<th><?php echo Lang::translate('direction');?></th>
+	 			<th><?php echo Lang::translate('name');?></th>
+	 			<th><?php echo Lang::translate('type');?></th>
+	 			<th><?php echo Lang::translate('size');?></th>
 	 			<th></th>
 	 		</tr>
 	 		<tr id="button">
-	 			<td colspan="5"><button type="button" class="btn btn-default" onclick="javascript:addParam();">Ajouter un paramètre</button></td>
+	 			<td colspan="5"><button type="button" class="btn btn-default" onclick="javascript:addParam();"><?php echo Lang::translate('add_parameter');?></button></td>
 	 		</tr>
 	 	</table>
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="code">Code</label>
+	<label class="control-label" for="code"><?php echo Lang::translate('code');?></label>
 	<div class="controls">
 	 	<textarea class="form-control" rows="8" name="code" id="code"></textarea>
 	</div>
 </div>
 <div class="control-group">
 	<div class="controls">
-		<button type="submit" id="btn_submit" class="btn btn-primary">Ajouter</button>
+		<button type="submit" id="btn_submit" class="btn btn-primary"><?php echo Lang::translate('add');?></button>
 	</div>
 </div>
 </fieldset>
@@ -94,8 +95,8 @@ if(isset($params[0]) && !empty($params[0]))
 		?>
 		<script type="text/javascript">
 			var procedure = <?php echo json_encode($procedure); ?>;
-			$('#btn_submit').html('Modifier');
-			$('#btn_submit').after($('<a>',{class:'btn btn-danger',html:'Supprimer',href:'/_rm_procedure/<?php echo $params[0];?>'}));
+			$('#btn_submit').html('<?php echo Lang::translate("update"); ?>');
+			$('#btn_submit').after($('<a>',{class:'btn btn-danger',html:'<?php echo Lang::translate("delete"); ?>',href:'/_rm_procedure/<?php echo $params[0];?>'}));
 			$('#name').val(procedure.name);
 			var params=procedure.params;
 			for(var i=0;i<params.length;i++)
