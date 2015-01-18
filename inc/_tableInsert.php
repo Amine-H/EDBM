@@ -34,15 +34,12 @@ $nameit = $params[0];// i dont know but somehow i can't give it $params[0] for t
 		$query .=" VALUES ";
 		$query .=$queryB." ";
 		$query .=" ;";
-
-echo $query ; 
-
 $result = Table::INSERT($query);
 if($result){
 	echo "<h1>le tableau a ete Remplier </h1>";
-	//timedRedirect('/tableAdd');
+	timedRedirect("/table/".$nameit."");
 }else{
 	echo "<h1>le tableau n'a pas ete Remplier </h1>\n".mysql_error(); 
-	//timedRedirect("tableAdd");
+	timedRedirect("/table/".$nameit."");
 }
 ?>

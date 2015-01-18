@@ -50,7 +50,7 @@ $name= Table::columnlist($db,$params[0],$link);
 		?>
 		<tr >
 			<th colspan="<?php echo $size+1?>" ><p class="text-center">
-				<a href="/tableInsert"><span style="color:green;" class="glyphicon glyphicon-plus"></span>Add Data</a>
+				<a href="/tableInsert/<?php echo $params[0]?>"><span style="color:green;" class="glyphicon glyphicon-plus"></span>Add Data</a>
 			</p>
 			</th>
 		</tr>
@@ -59,7 +59,7 @@ $name= Table::columnlist($db,$params[0],$link);
 			?>
 		<tr >
 			<th colspan="<?php echo $size+1?>" ><p class="text-center">Still empty 
-				<a href="/tableInsert"><span style="color:green;" class="glyphicon glyphicon-plus"></span>Add Data</a>
+				<a href="/tableInsert/<?php echo $params[0]?>"><span style="color:green;" class="glyphicon glyphicon-plus"></span>Add Data</a>
 			</p>
 			</th>
 			
