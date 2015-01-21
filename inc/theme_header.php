@@ -9,7 +9,7 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="/">
+                    <a href="<?php echo EDBM_ROOT; ?>/">
                         <h4><span class="glyphicon glyphicon-home"></span><?php echo Lang::translate('home'); ?></h4>
                     </a>
                 </li>
@@ -21,7 +21,7 @@
                     </select>
                 </li>
                 <li>
-                    <a href="/database" style="color:#117ab7;"><span class="glyphicon glyphicon-plus"></span><?php echo Lang::translate('add_new'); ?></a>
+                    <a href="<?php echo EDBM_ROOT; ?>/home" style="color:#117ab7;"><span class="glyphicon glyphicon-plus"></span><?php echo Lang::translate('add_new'); ?></a>
                 </li>
                 <?php
                 $list=DB::listDBs($link);
@@ -31,10 +31,10 @@
                 <li>
                     <a class="<?php 
 					if(DB::getSelectedDB()==$list[$i])
-					{echo 'selected';}?>" href="/database/<?php echo $list[$i];?>"><?php echo $list[$i];?></a>
+					{echo 'selected';}?>" href="<?php echo EDBM_ROOT; ?>/database/<?php echo $list[$i];?>"><?php echo $list[$i];?></a>
                 </li>
                 <?php } ?>
-                <li><a href="/logout" style="color:#a94442;"><span class="glyphicon glyphicon-off"></span><?php echo Lang::translate('logout'); ?></a></li>
+                <li><a href="<?php echo EDBM_ROOT; ?>/logout" style="color:#a94442;"><span class="glyphicon glyphicon-off"></span><?php echo Lang::translate('logout'); ?></a></li>
             </ul>
 
         </div>

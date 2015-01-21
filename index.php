@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	$isIndex=true;
+	define('EDBM_ROOT',substr($_SERVER['PHP_SELF'],0,strrpos($_SERVER['PHP_SELF'],'/')));
 	require_once('./inc/functions.php');
 	require_once('./inc/config.php');
 	require_once('./inc/user.class.php');
@@ -53,20 +54,26 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 		<title>Easy Database Manager</title>
-		<script type="text/javascript" src="/js/jquery.min.js"></script>
-		<script type="text/javascript" src="/js/bootstrap.min.js"></script>
-                <script type="text/javascript" src="/js/script.js"></script>
-		<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-		<link rel="icon" type="image/png" href="/img/icon.png">
+		<script type="text/javascript" src="<?php echo EDBM_ROOT; ?>/js/jquery.min.js"></script>
+		<script type="text/javascript" src="<?php echo EDBM_ROOT; ?>/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+        	$(document).ready(function(){
+		    $('#langs').change(function(){
+		        window.location='<?php echo EDBM_ROOT; ?>/lang/'+$('#langs').val();
+		    });
+		});
+        </script>
+		<link rel="stylesheet" type="text/css" href="<?php echo EDBM_ROOT; ?>/css/bootstrap.min.css">
+		<link rel="icon" type="image/png" href="<?php echo EDBM_ROOT; ?>/img/icon.png">
 		<?php 
 		if(!User::isConnected())
 		{?>
-		<link rel="stylesheet" type="text/css" href="/css/signin.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo EDBM_ROOT; ?>/css/signin.css">
 		<?php }?>
-		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo EDBM_ROOT; ?>/css/style.css">
                 <?php
                 if(Lang::get()=='ar'){ ?>
-                <link rel="stylesheet" type="text/css" href="/css/arabic_style.css">
+                <link rel="stylesheet" type="text/css" href="<?php echo EDBM_ROOT; ?>/css/arabic_style.css">
                 <?php } ?>
 </head>
 <body>

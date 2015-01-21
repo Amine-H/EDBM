@@ -6,7 +6,7 @@ if(!isset($params[0]) || empty($params[0])){header('Location: /');}
 else if(!DB::exists(array('name'=>$params[0],'link'=>$link)))
 {
 	echo "Base de données inexistant!";
-	timedRedirect('/');
+	timedRedirect(EDBM_ROOT.'/');
 }
 else
 {
@@ -14,12 +14,12 @@ else
 	{
 		if(DB::selectDB($params[0]))
 		{
-			header('Location: /database/'.$params[0]);
+			header('Location: '.EDBM_ROOT.'/database/'.$params[0]);
 		}
 		else
 		{//something is up.. let's show an error message then redirect
 			echo "impossible de selectionner la base de données!";
-			timedRedirect('/');
+			timedRedirect(EDBM_ROOT.'/');
 		}
 
 	}
@@ -27,7 +27,7 @@ else
 	{
 ?>
 <div class="alert alert-info"><?php echo Lang::translate('database'); ?>:<?php echo DB::getSelectedDB();?></div>
-<a class="btn btn-primary" href="/console"><?php echo Lang::translate('execute_code'); ?></a>
+<a class="btn btn-primary" href="<?php echo EDBM_ROOT; ?>/console"><?php echo Lang::translate('execute_code'); ?></a>
 	 	<table class="table table-striped">
 	 		<tr>
 	 			<th><?php echo Lang::translate('tables'); ?></th>
@@ -35,9 +35,9 @@ else
 	 			<th><?php echo Lang::translate('procedures'); ?></th>
 	 		</tr>
 	 		<tr>
-	 			<td><a href="/tableAdd"><span class="glyphicon glyphicon-plus"></span><?php echo Lang::translate('add_new'); ?></a></td>
-	 			<td><a href="/fonction"><span class="glyphicon glyphicon-plus"></span><?php echo Lang::translate('add_new'); ?></a></td>
-	 			<td><a href="/procedure"><span class="glyphicon glyphicon-plus"></span><?php echo Lang::translate('add_new'); ?></a></td>
+	 			<td><a href="<?php echo EDBM_ROOT; ?>/tableAdd"><span class="glyphicon glyphicon-plus"></span><?php echo Lang::translate('add_new'); ?></a></td>
+	 			<td><a href="<?php echo EDBM_ROOT; ?>/fonction"><span class="glyphicon glyphicon-plus"></span><?php echo Lang::translate('add_new'); ?></a></td>
+	 			<td><a href="<?php echo EDBM_ROOT; ?>/procedure"><span class="glyphicon glyphicon-plus"></span><?php echo Lang::translate('add_new'); ?></a></td>
 	 		</tr>
 <?php
 $tables=Table::tablelist();$nt=sizeof($tables);
@@ -50,10 +50,10 @@ for($i=0;$i<$n;$i++)
 				<?php
 				if(isset($tables[$i]))
 				{ ?>
-				<td><a href="/table/<?php echo $tables[$i];?>"><?php echo $tables[$i];?></a>
-					<a href="/tableInsert/<?php echo $tables[$i];?>"><span style="color:black;" class="glyphicon glyphicon-pencil"></span></a>
+				<td><a href="<?php echo EDBM_ROOT; ?>/table/<?php echo $tables[$i];?>"><?php echo $tables[$i];?></a>
+					<a href="<?php echo EDBM_ROOT; ?>/tableInsert/<?php echo $tables[$i];?>"><span style="color:black;" class="glyphicon glyphicon-pencil"></span></a>
 					<!--<a href="/tableUpdate/><span style="color:green;" class="glyphicon glyphicon-wrench"></span></a>-->
-					<a href="/tableDel/<?php echo $tables[$i];?>"><span style="color:red;" class="glyphicon glyphicon-trash"></span></a>
+					<a href="<?php echo EDBM_ROOT; ?>/tableDel/<?php echo $tables[$i];?>"><span style="color:red;" class="glyphicon glyphicon-trash"></span></a>
 				</td>
 				<?php }
 				else
@@ -64,7 +64,7 @@ for($i=0;$i<$n;$i++)
 				<?php
 				if(isset($fonctions[$i]))
 				{ ?>
-				<td><a href="/fonction/<?php echo $fonctions[$i];?>"><?php echo $fonctions[$i];?></a></td>
+				<td><a href="<?php echo EDBM_ROOT; ?>/fonction/<?php echo $fonctions[$i];?>"><?php echo $fonctions[$i];?></a></td>
 				<?php }
 				else
 				{ ?>
@@ -74,7 +74,7 @@ for($i=0;$i<$n;$i++)
 				<?php
 				if(isset($procedures[$i]))
 				{ ?>
-				<td><a href="/procedure/<?php echo $procedures[$i];?>"><?php echo $procedures[$i];?></a></td>
+				<td><a href="<?php echo EDBM_ROOT; ?>/procedure/<?php echo $procedures[$i];?>"><?php echo $procedures[$i];?></a></td>
 				<?php }
 				else
 				{ ?>
@@ -98,7 +98,7 @@ var confirmation = confirm(question) ;
 });
 </script>
 	 <div style="position: absolute; bottom: -50px; right: 0px;">
-	 	<form action ="/_dropdatabase/<?php echo $params[0]?>" method="POST">
+	 	<form action ="<?php echo EDBM_ROOT; ?>/_dropdatabase/<?php echo $params[0]?>" method="POST">
 		<input class='btn btn-danger btn-xs' name="removeDB" type="submit" value="<?php echo Lang::translate('delete_database'); ?>"/>
 	</div>
 <?php

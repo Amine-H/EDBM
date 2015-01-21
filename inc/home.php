@@ -8,7 +8,7 @@ else if(DB::getSelectedDB()!=''){header('Location: /database/'.DB::getSelectedDB
     echo "PHP version :".phpversion()."<br/>";
 ?>
 
-<form class="form-vertical" action="/_database" method="POST">
+<form class="form-vertical" action="<?php echo EDBM_ROOT; ?>/_database" method="POST">
 <fieldset style="width:500px;display:block;">
 <legend><?php echo Lang::translate('create_database'); ?></legend>
 	<div class="control-group">

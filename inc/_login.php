@@ -10,7 +10,7 @@ if($link !== false)
 {
 	echo "connection etablit!";
 	User::login(array('user'=>$user,'password'=>$password));
-	header('Location: /home');
+	header('Location: '.EDBM_ROOT.'/home');
 }
 else
 {

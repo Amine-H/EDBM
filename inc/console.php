@@ -38,7 +38,7 @@
         $('#console').html($.trim($('#console').html()));
     });
 </script>
-<form action="/console" method="POST">
+<form action="<?php echo EDBM_ROOT; ?>/console" method="POST">
     <div class="control-group">
             <label class="control-label" for="console"><?php echo Lang::translate('console'); ?></label>
             <div class="controls">

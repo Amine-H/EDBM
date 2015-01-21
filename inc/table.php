@@ -42,7 +42,7 @@ $name= Table::columnlist($db,$params[0],$link);
 			}
 			?>
 			<th>
-				<a href="/_rowdelete"><span style="color:red;" class="glyphicon glyphicon-trash"></span></a>
+				<a href="<?php echo EDBM_ROOT; ?>/_rowdelete"><span style="color:red;" class="glyphicon glyphicon-trash"></span></a>
 			</th>
 		</tr>
 		<?php
@@ -50,7 +50,7 @@ $name= Table::columnlist($db,$params[0],$link);
 		?>
 		<tr >
 			<th colspan="<?php echo $size+1?>" ><p class="text-center">
-				<a href="/tableInsert/<?php echo $params[0]?>"><span style="color:green;" class="glyphicon glyphicon-plus"></span><?php echo Lang::translate('add_data'); ?></a>
+				<a href="<?php echo EDBM_ROOT; ?>/tableInsert/<?php echo $params[0]?>"><span style="color:green;" class="glyphicon glyphicon-plus"></span><?php echo Lang::translate('add_data'); ?></a>
 			</p>
 			</th>
 		</tr>
@@ -59,7 +59,7 @@ $name= Table::columnlist($db,$params[0],$link);
 			?>
 		<tr >
 			<th colspan="<?php echo $size+1?>" ><p class="text-center"><?php echo Lang::translate('no_data'); ?>
-				<a href="/tableInsert/<?php echo $params[0]?>"><span style="color:green;" class="glyphicon glyphicon-plus"></span><?php echo Lang::translate('add_data'); ?></a>
+				<a href="<?php echo EDBM_ROOT; ?>/tableInsert/<?php echo $params[0]?>"><span style="color:green;" class="glyphicon glyphicon-plus"></span><?php echo Lang::translate('add_data'); ?></a>
 			</p>
 			</th>
 			

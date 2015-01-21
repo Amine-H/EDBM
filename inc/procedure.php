@@ -41,7 +41,7 @@ require_once(base_url().'/inc/procedure.class.php');
 		},1000);
 	}
 </script>
-<form class="form-horizontal" action="/_procedure" method="POST">
+<form class="form-horizontal" action="<?php echo EDBM_ROOT; ?>/_procedure" method="POST">
 <fieldset style="width:500px;display:block;">
 <legend><?php echo Lang::translate('create_procedure');?></legend>
 
@@ -96,7 +96,7 @@ if(isset($params[0]) && !empty($params[0]))
 		<script type="text/javascript">
 			var procedure = <?php echo json_encode($procedure); ?>;
 			$('#btn_submit').html('<?php echo Lang::translate("update"); ?>');
-			$('#btn_submit').after($('<a>',{class:'btn btn-danger',html:'<?php echo Lang::translate("delete"); ?>',href:'/_rm_procedure/<?php echo $params[0];?>'}));
+			$('#btn_submit').after($('<a>',{class:'btn btn-danger',html:'<?php echo Lang::translate("delete"); ?>',href:'<?php echo EDBM_ROOT; ?>/_rm_procedure/<?php echo $params[0];?>'}));
 			$('#name').val(procedure.name);
 			var params=procedure.params;
 			for(var i=0;i<params.length;i++)

@@ -34,7 +34,7 @@ require_once(base_url().'/inc/fonction.class.php');
 		},1000);
 	}
 </script>
-<form class="form-horizontal" action="/_fonction" method="POST">
+<form class="form-horizontal" action="<?php echo EDBM_ROOT; ?>/_fonction" method="POST">
 <fieldset style="width:500px;display:block;">
 <legend><?php echo Lang::translate('create_function');?></legend>
 
@@ -104,7 +104,7 @@ if(isset($params[0]) && !empty($params[0]))
 		<script type="text/javascript">
 			var fonction = <?php echo json_encode($fonction); ?>;
 			$('#btn_submit').html('<?php echo Lang::translate("update"); ?>');
-			$('#btn_submit').after($('<a>',{class:'btn btn-danger',html:'<?php echo Lang::translate("delete"); ?>',href:'/_rm_fonction/<?php echo $params[0];?>'}));
+			$('#btn_submit').after($('<a>',{class:'btn btn-danger',html:'<?php echo Lang::translate("delete"); ?>',href:'<?php echo EDBM_ROOT; ?>/_rm_fonction/<?php echo $params[0];?>'}));
 			$('#name').val(fonction.name);
 			var params=fonction.params;
 			for(var i=0;i<params.length;i++)

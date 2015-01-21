@@ -8,5 +8,5 @@
 	} else {
 		echo "Error creating database \n";
 	}
-	timedRedirect("home");
+	timedRedirect("/home");
 ?>

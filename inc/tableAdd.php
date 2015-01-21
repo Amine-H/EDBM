@@ -54,7 +54,7 @@ require_once(base_url().'/inc/table.class.php');
 		},1000);
 	}
 </script>
-<form class="form-horizontal" action="/_tableAdd" method="POST">
+<form class="form-horizontal" action="<?php echo EDBM_ROOT; ?>/_tableAdd" method="POST">
 <div class="">
 	 <table class="table table-striped table-bordered table-nonfluid" name="TC" id="TC">
 	 	<tr class="danger">

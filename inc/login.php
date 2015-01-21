@@ -2,8 +2,8 @@
 if(!isset($isIndex))die('');
 if(User::isConnected())header('Location: /');?>
 <div class="container">
-      <form class="form-signin" role="form" action="_login" method="POST">
-        <div><img src="/img/logo.png"></div>
+      <form class="form-signin" role="form" action="<?php echo EDBM_ROOT; ?>/_login" method="POST">
+        <div><img src="<?php echo EDBM_ROOT; ?>/img/logo.png"></div>
         <h2 class="form-signin-heading" style="text-align:center;"><?php echo Lang::translate('connection'); ?></h2>
         <label for="user" class="sr-only"><?php echo Lang::translate('user'); ?></label>
         <span class="input-group-addon glyphicon glyphicon-user"></span>
