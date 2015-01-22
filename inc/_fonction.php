@@ -14,6 +14,7 @@ else
 		'return_type'=>$return_type,'return_size'=>$return_size,'code'=>$code)))
 	{
 		echo "<div class='alert alert-success'>Fonction $name crée!</div>";
+		timedRedirect('/database');
 	}
 	else
 	{

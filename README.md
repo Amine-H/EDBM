@@ -1,16 +1,16 @@
-##EDBM
-====
-#EasyDatabaseManager
+EasyDatabaseManager
+===
 
 Introduction
 --
 EDBM est une application Web de gestion pour les systèmes de gestion de base de données MySQL réalisée en PHP, et a été créé pour faciliter la gestion des bases de données mysql.
 
 cette interface pratique permet d'exécuter, très facilement et sans grandes connaissances dans le domaine des bases de données, de nombreuses requêtes comme les créations de table de données, les insertions, les mises à jour, les suppressions, les modifications de structure de la base de données. Ce système est très pratique pour sauvegarder une base de données 
-	* multilingual support
-		* English
-		* Arabic
-		* French
+
+*	multilingual support
+	*	English
+	*	Arabic
+	*	French
 
 Exigences
 --
@@ -73,9 +73,3 @@ Crédits
 * [Ali Elouai](https://github.com/happy-ali)
 * [Ayoub Barakat](https://github.com/khmichane)
 * [Amine Hakkou](https://github.com/Amine-H)
-
-
-
-====
-
-
