@@ -1,6 +1,7 @@
 css/signin.css
 css/style.css
 css/bootstrap.min.css
+doc/*
 *~
 css/*~
 js/*~
@@ -9,3 +10,4 @@ img/*~
 nbproject/private/
 nbproject/project.properties
 nbproject/project.xml
+README.md
