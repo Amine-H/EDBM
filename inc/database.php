@@ -2,7 +2,14 @@
 require_once(base_url().'/inc/fonction.class.php');
 require_once(base_url().'/inc/procedure.class.php');
 require_once(base_url().'/inc/table.class.php');
-if(!isset($params[0]) || empty($params[0])){header('Location: /');}
+if(!isset($params[0]) || empty($params[0])){
+	if(!empty(DB::getSelectedDB())){
+		header('Location: '.EDBM_ROOT.'/database/'.DB::getSelectedDB());
+	}
+	else{
+		header('Location: '.EDBM_ROOT);
+	}
+}
 else if(!DB::exists(array('name'=>$params[0],'link'=>$link)))
 {
 	echo "Base de données inexistant!";
