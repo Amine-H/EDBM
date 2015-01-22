@@ -32,7 +32,7 @@ $name=array();
 $name= Table::columnlist($db,$params[0],$link);
 ?>
 <!--<div class="table-responsive ">need to think of this deeply next time-->
-<form action="/_tableInsert/<?php echo $params[0]?>" method="post">
+<form action="<?php echo EDBM_ROOT;?>/_tableInsert/<?php echo $params[0]?>" method="post">
 	 	<table class="table table-striped table-bordered">
 	 	<tr class="danger"><?php $size = sizeof($name);
 		for($j=0;$j<$size;$j++){?>
