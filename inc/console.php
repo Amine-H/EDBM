@@ -53,7 +53,7 @@
             <button type="submit" class="btn btn-primary"><?php echo Lang::translate('execute'); ?></button>
     </div>
     <div class="alert alert-<?php echo $alert_type; ?>" role="alert">
-        <div><?php echo Lang::translate('code_executed'); ?></div>
+        <div><?php if($alert_type=='success'){echo Lang::translate('code_executed');} ?></div>
         <?php echo $alert_message; ?>
     </div>
 </form>
