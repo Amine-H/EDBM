@@ -12,6 +12,7 @@ else
 	if(Procedure::create(array('link'=>$link,'name'=>$name,'params'=>$params,'code'=>$code)))
 	{
 		echo "<div class='alert alert-success'>Procedure $name crée!</div>";
+		redirectToLast();
 	}
 	else
 	{

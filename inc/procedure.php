@@ -101,7 +101,7 @@ if(isset($params[0]) && !empty($params[0]))
 			var params=procedure.params;
 			for(var i=0;i<params.length;i++)
 			{
-				if(trim(params[i][1]).length == 0){
+				if(params[i][1].trim().length == 0){
 					continue;
 				}
 				addParam();
